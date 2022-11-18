@@ -7,7 +7,7 @@
     <title>Document</title>
     <style>
         body{
-
+            color: #daa520;
         }
         .dps{
             background-color: red;
@@ -23,4 +23,44 @@
 <body>
     <div id="scree"></div>
 </body>
+<script>
+    //Modell
+    let jobNumber;
+    let jobName;
+    let color;
+    //View
+    function updateView(){
+        document.body.style.background = color;
+
+        document.getElementById('scree').innerHTML = /*HTML*/ `
+        <h1>${jobName}
+        `
+
+    }
+    //Controller
+    randomJob()
+    function randomJob(){
+        jobNumber =  Math.floor(Math.random() * 19) + 1;
+            if (jobNumber == 1){jobName = "Paladin"; color = 'blue';}
+            else if(jobNumber == 2){jobName = "Gunbreaker"; color = 'blue';}
+            else if(jobNumber == 3){jobName = "Dark knight"; color = 'blue';}
+            else if(jobNumber == 4){jobName = "Warrior"; color = 'blue';}
+            else if(jobNumber == 5){jobName = "Reaper"; color = 'red';}
+            else if(jobNumber == 6){jobName = "Ninja"; color = 'red';}
+            else if(jobNumber == 7){jobName = "Samurai"; color = 'red';}
+            else if(jobNumber == 8){jobName = "Monk"; color = 'red';}
+            else if(jobNumber == 9){jobName = "Dragoon"; color = 'red';}
+            else if(jobNumber == 10){jobName = "Bard"; color = 'red';}
+            else if(jobNumber == 11){jobName = "Machinist"; color = 'red';}
+            else if(jobNumber == 12){jobName = "Dancer"; color = 'red';}
+            else if(jobNumber == 13){jobName = "Red mage"; color = 'red';}
+            else if(jobNumber == 14){jobName = "Black mage"; color = 'red';}
+            else if(jobNumber == 15){jobName = "Summoner"; color = 'red';}
+            else if(jobNumber == 16){jobName = "Scholar"; color = 'green';}
+            else if(jobNumber == 17){jobName = "White mage"; color = 'green';}
+            else if(jobNumber == 18){jobName = "Astrologian"; color = 'green';}
+            else{jobName = "Sage"; color = 'green';}
+            updateView()
+    }
+</script>
 </html>
