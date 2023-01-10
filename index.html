@@ -18,7 +18,9 @@
 <body>
     <div id="scree"></div>
     <div id="imgur"></div>
-    <!-- <img src="/heroes/astrologian.jpg" > -->
+<div>
+    <button onClick="window.location.reload();">Another job</button>
+</div>
 </body>
 <script>
     //Modell
@@ -44,9 +46,7 @@
 {jobName : "Astrologian", color : 'green', picture : 'https://erwan228.github.io/Musics-job-chooser/heroes/astrologian.jpg',},
  {jobName : "Sage", color : 'green', picture : 'https://erwan228.github.io/Musics-job-chooser/heroes/sage.jpg',},
     ]
-    // let jobName;
-    // let color;
-    // let picture;
+    ;
     //View
     function updateView(){
         document.body.style.backgroundColor = jobs[jobNumber].color;
@@ -65,25 +65,6 @@
     randomJob()
     function randomJob(){
         jobNumber =  Math.floor(Math.random() * 19) + 1;
-            // if (jobNumber == 1){jobName = "Paladin"; color = 'blue'; picture = 'https://erwan228.github.io/Musics-job-chooser/heroes/paladin.jpg'; }
-            // else if(jobNumber == 2){jobName = "Gunbreaker"; color = 'blue'; picture = 'https://erwan228.github.io/Musics-job-chooser/heroes/gunbreaker.jpg';}
-            // else if(jobNumber == 3){jobName = "Dark knight"; color = 'blue'; picture = 'https://erwan228.github.io/Musics-job-chooser/heroes/darkknight.jpg';}
-            // else if(jobNumber == 4){jobName = "Warrior"; color = 'blue'; picture = 'https://erwan228.github.io/Musics-job-chooser/heroes/warrior.jpg';}
-            // else if(jobNumber == 5){jobName = "Reaper"; color = 'red'; picture = 'https://erwan228.github.io/Musics-job-chooser/heroes/reaper.jpg';}
-            // else if(jobNumber == 6){jobName = "Ninja"; color = 'red'; picture = 'https://erwan228.github.io/Musics-job-chooser/heroes/ninja.png';}
-            // else if(jobNumber == 7){jobName = "Samurai"; color = 'red'; picture = 'https://erwan228.github.io/Musics-job-chooser/heroes/samurai.png';}
-            // else if(jobNumber == 8){jobName = "Monk"; color = 'red'; picture = 'https://erwan228.github.io/Musics-job-chooser/heroes/monk.jpg';}
-            // else if(jobNumber == 9){jobName = "Dragoon"; color = 'red'; picture = 'https://erwan228.github.io/Musics-job-chooser/heroes/dragoon.jpg';}
-            // else if(jobNumber == 10){jobName = "Bard"; color = 'red'; picture = 'https://erwan228.github.io/Musics-job-chooser/heroes/bard.jpg';}
-            // else if(jobNumber == 11){jobName = "Machinist"; color = 'red'; picture = 'https://erwan228.github.io/Musics-job-chooser/heroes/machinist.jpg';}
-            // else if(jobNumber == 12){jobName = "Dancer"; color = 'red'; picture = 'https://erwan228.github.io/Musics-job-chooser/heroes/dancer.jpg';}
-            // else if(jobNumber == 13){jobName = "Red mage"; color = 'red'; picture = 'https://erwan228.github.io/Musics-job-chooser/heroes/redmage.png';}
-            // else if(jobNumber == 14){jobName = "Black mage"; color = 'red'; picture = 'https://erwan228.github.io/Musics-job-chooser/heroes/blackmage.jpg';}
-            // else if(jobNumber == 15){jobName = "Summoner"; color = 'red'; picture = 'https://erwan228.github.io/Musics-job-chooser/heroes/summoner.jpg';}
-            // else if(jobNumber == 16){jobName = "Scholar"; color = 'green'; picture = 'https://erwan228.github.io/Musics-job-chooser/heroes/scholar.jpg';}
-            // else if(jobNumber == 17){jobName = "White mage"; color = 'green'; picture = 'https://erwan228.github.io/Musics-job-chooser/heroes/whitemage.jpg';}
-            // else if(jobNumber == 18){jobName = "Astrologian"; color = 'green'; picture = 'https://erwan228.github.io/Musics-job-chooser/heroes/astrologian.jpg';}
-            // else                    {jobName = "Sage"; color = 'green'; picture = 'https://erwan228.github.io/Musics-job-chooser/heroes/sage.jpg';}
             updateView()
     }
 </script>
