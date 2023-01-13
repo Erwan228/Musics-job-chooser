@@ -1,56 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job chooser</title>
     <style>
-        body{
+        body {
             user-select: none;
             color: #daa520;
         }
+
         img {
             height: 329px;
         }
     </style>
 </head>
+
 <body>
-    <div id="scree"></div>
+
+    <div id="scree">
+        <h1>Choose a random FFXIV job!</h1>
+        <div>
+            <button onClick="updateView();" style="height: 250px; width: 250px; font-size: x-large;">Find a
+                job</button>
+        </div>
+    </div>
     <div id="imgur"></div>
-<div>
-    <button onClick="window.location.reload();" style="height: 250px; width: 250px; font-size: x-large;">Another job</button>
-</div>
 </body>
 <script>
     //Modell
     let jobNumber;
     let jobs = [{},
-    {jobName : "Paladin", color : 'blue', picture : 'https://erwan228.github.io/Musics-job-chooser/heroes/paladin.jpg', },
-    {jobName : "Gunbreaker", color : 'blue', picture : 'https://erwan228.github.io/Musics-job-chooser/heroes/gunbreaker.jpg',},
-    {jobName : "Dark knight", color : 'blue', picture : 'https://erwan228.github.io/Musics-job-chooser/heroes/darkknight.jpg',},
-{jobName : "Warrior", color : 'blue', picture : 'https://erwan228.github.io/Musics-job-chooser/heroes/warrior.jpg',},
-{jobName : "Reaper", color : 'red', picture : 'https://erwan228.github.io/Musics-job-chooser/heroes/reaper.jpg',},
-{jobName : "Ninja", color : 'red', picture : 'https://erwan228.github.io/Musics-job-chooser/heroes/ninja.png',},
-{jobName : "Samurai", color : 'red', picture : 'https://erwan228.github.io/Musics-job-chooser/heroes/samurai.png',},
-{jobName : "Monk", color : 'red', picture : 'https://erwan228.github.io/Musics-job-chooser/heroes/monk.jpg',},
-{jobName : "Dragoon", color : 'red', picture : 'https://erwan228.github.io/Musics-job-chooser/heroes/dragoon.jpg',},
-{jobName : "Bard", color : 'red', picture : 'https://erwan228.github.io/Musics-job-chooser/heroes/bard.jpg',},
-{jobName : "Machinist", color : 'red', picture : 'https://erwan228.github.io/Musics-job-chooser/heroes/machinist.jpg',},
-{jobName : "Dancer", color : 'red', picture : 'https://erwan228.github.io/Musics-job-chooser/heroes/dancer.jpg',},
-{jobName : "Red mage", color : 'red', picture : 'https://erwan228.github.io/Musics-job-chooser/heroes/redmage.png',},
-{jobName : "Black mage", color : 'red', picture : 'https://erwan228.github.io/Musics-job-chooser/heroes/blackmage.jpg',},
-{jobName : "Summoner", color : 'red', picture : 'https://erwan228.github.io/Musics-job-chooser/heroes/summoner.jpg',},
-{jobName : "Scholar", color : 'green', picture : 'https://erwan228.github.io/Musics-job-chooser/heroes/scholar.jpg',},
-{jobName : "White mage", color : 'green', picture : 'https://erwan228.github.io/Musics-job-chooser/heroes/whitemage.jpg',},
-{jobName : "Astrologian", color : 'green', picture : 'https://erwan228.github.io/Musics-job-chooser/heroes/astrologian.jpg',},
- {jobName : "Sage", color : 'green', picture : 'https://erwan228.github.io/Musics-job-chooser/heroes/sage.jpg',},
+    { jobName: "Paladin", role: "tank", color: 'blue', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/paladin.jpg', },
+    { jobName: "Gunbreaker", role: "tank", color: 'blue', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/gunbreaker.jpg', },
+    { jobName: "Dark knight", role: "tank", color: 'blue', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/darkknight.jpg', },
+    { jobName: "Warrior", role: "tank", color: 'blue', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/warrior.jpg', },
+    { jobName: "Reaper", role: "DPS", sub_role: "melee", color: 'red', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/reaper.jpg', },
+    { jobName: "Ninja", role: "DPS", sub_role: "melee", color: 'red', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/ninja.png', },
+    { jobName: "Samurai", role: "DPS", sub_role: "melee", color: 'red', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/samurai.png', },
+    { jobName: "Monk", role: "DPS", sub_role: "melee", color: 'red', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/monk.jpg', },
+    { jobName: "Dragoon", role: "DPS", sub_role: "melee", color: 'red', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/dragoon.jpg', },
+    { jobName: "Bard", role: "DPS", sub_role: "physicalrange", color: 'red', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/bard.jpg', },
+    { jobName: "Machinist", role: "DPS", sub_role: "physicalrange", color: 'red', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/machinist.jpg', },
+    { jobName: "Dancer", role: "DPS", sub_role: "physicalrange", color: 'red', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/dancer.jpg', },
+    { jobName: "Red mage", role: "DPS", sub_role: "magicrange", color: 'red', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/redmage.png', },
+    { jobName: "Black mage", role: "DPS", sub_role: "magicrange", color: 'red', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/blackmage.jpg', },
+    { jobName: "Summoner", role: "DPS", sub_role: "magicrange", color: 'red', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/summoner.jpg', },
+    { jobName: "Scholar", role: "healer", sub_role: "protective", color: 'green', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/scholar.jpg', },
+    { jobName: "White mage", role: "healer", sub_role: "regenerative", color: 'green', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/whitemage.jpg', },
+    { jobName: "Astrologian", role: "healer", sub_role: "regenerative", color: 'green', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/astrologian.jpg', },
+    { jobName: "Sage", role: "healer", sub_role: "protective", color: 'green', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/sage.jpg', },
     ]
-    ;
+        ;
     //View
-    function updateView(){
+    function updateView() {
+        randomJob()
         document.body.style.backgroundColor = jobs[jobNumber].color;
-        
+
 
         document.getElementById('scree').innerHTML = /*HTML*/ `
         <h1>${jobs[jobNumber].jobName}</h1>
@@ -58,14 +66,18 @@
 
         document.getElementById('imgur').innerHTML = /*HTML*/ `
         <img src=${jobs[jobNumber].picture}> 
+        <div>
+            <button onClick="updateView();" style="height: 250px; width: 250px; font-size: x-large;">Another job</button>
+        </div>
         `
 
     }
     //Controller
-    randomJob()
-    function randomJob(){
-        jobNumber =  Math.floor(Math.random() * 19) + 1;
-            updateView()
+
+    function randomJob() {
+        jobNumber = Math.floor(Math.random() * 19) + 1;
+
     }
 </script>
+
 </html>
