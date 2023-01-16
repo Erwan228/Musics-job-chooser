@@ -15,11 +15,17 @@
         img {
             height: 329px;
         }
+
+        .checkboxes {
+            display: flex;
+        }
     </style>
 </head>
 
 <body>
-
+    <div id="filterbutton">
+        <button onclick="filterView()" style="height: auto; width: 100px; font-size: large;">Filter</button>
+    </div>
     <div id="scree">
         <h1>Choose a random FFXIV job!</h1>
         <div>
@@ -27,56 +33,128 @@
                 job</button>
         </div>
     </div>
-    <div id="imgur"></div>
+    <div id="imagur"></div>
+    <!-- <details>
+        <summary>Tanks</summary>
+        <li>Paladin <input type="checkbox" value='checked' onchange=""></li>
+    </details> -->
 </body>
 <script>
     //Modell
     let jobNumber;
-    let jobs = [{},
-    { jobName: "Paladin", role: "tank", color: 'blue', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/paladin.jpg', },
-    { jobName: "Gunbreaker", role: "tank", color: 'blue', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/gunbreaker.jpg', },
-    { jobName: "Dark knight", role: "tank", color: 'blue', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/darkknight.jpg', },
-    { jobName: "Warrior", role: "tank", color: 'blue', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/warrior.jpg', },
-    { jobName: "Reaper", role: "DPS", sub_role: "melee", color: 'red', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/reaper.jpg', },
-    { jobName: "Ninja", role: "DPS", sub_role: "melee", color: 'red', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/ninja.png', },
-    { jobName: "Samurai", role: "DPS", sub_role: "melee", color: 'red', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/samurai.png', },
-    { jobName: "Monk", role: "DPS", sub_role: "melee", color: 'red', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/monk.jpg', },
-    { jobName: "Dragoon", role: "DPS", sub_role: "melee", color: 'red', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/dragoon.jpg', },
-    { jobName: "Bard", role: "DPS", sub_role: "physicalrange", color: 'red', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/bard.jpg', },
-    { jobName: "Machinist", role: "DPS", sub_role: "physicalrange", color: 'red', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/machinist.jpg', },
-    { jobName: "Dancer", role: "DPS", sub_role: "physicalrange", color: 'red', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/dancer.jpg', },
-    { jobName: "Red mage", role: "DPS", sub_role: "magicrange", color: 'red', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/redmage.png', },
-    { jobName: "Black mage", role: "DPS", sub_role: "magicrange", color: 'red', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/blackmage.jpg', },
-    { jobName: "Summoner", role: "DPS", sub_role: "magicrange", color: 'red', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/summoner.jpg', },
-    { jobName: "Scholar", role: "healer", sub_role: "protective", color: 'green', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/scholar.jpg', },
-    { jobName: "White mage", role: "healer", sub_role: "regenerative", color: 'green', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/whitemage.jpg', },
-    { jobName: "Astrologian", role: "healer", sub_role: "regenerative", color: 'green', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/astrologian.jpg', },
-    { jobName: "Sage", role: "healer", sub_role: "protective", color: 'green', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/sage.jpg', },
+    let jobs = [
+        { jobName: "Paladin", role: "tank", color: 'blue', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/paladin.jpg', },
+        { jobName: "Gunbreaker", role: "tank", color: 'blue', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/gunbreaker.jpg', },
+        { jobName: "Dark knight", role: "tank", color: 'blue', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/darkknight.jpg', },
+        { jobName: "Warrior", role: "tank", color: 'blue', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/warrior.jpg', },
+        { jobName: "Reaper", role: "DPS", sub_role: "melee", color: 'red', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/reaper.jpg', },
+        { jobName: "Ninja", role: "DPS", sub_role: "melee", color: 'red', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/ninja.png', },
+        { jobName: "Samurai", role: "DPS", sub_role: "melee", color: 'red', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/samurai.png', },
+        { jobName: "Monk", role: "DPS", sub_role: "melee", color: 'red', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/monk.jpg', },
+        { jobName: "Dragoon", role: "DPS", sub_role: "melee", color: 'red', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/dragoon.jpg', },
+        { jobName: "Bard", role: "DPS", sub_role: "physicalrange", color: 'red', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/bard.jpg', },
+        { jobName: "Machinist", role: "DPS", sub_role: "physicalrange", color: 'red', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/machinist.jpg', },
+        { jobName: "Dancer", role: "DPS", sub_role: "physicalrange", color: 'red', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/dancer.jpg', },
+        { jobName: "Red mage", role: "DPS", sub_role: "magicrange", color: 'red', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/redmage.png', },
+        { jobName: "Black mage", role: "DPS", sub_role: "magicrange", color: 'red', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/blackmage.jpg', },
+        { jobName: "Summoner", role: "DPS", sub_role: "magicrange", color: 'red', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/summoner.jpg', },
+        { jobName: "Scholar", role: "healer", sub_role: "protective", color: 'green', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/scholar.jpg', },
+        { jobName: "White mage", role: "healer", sub_role: "regenerative", color: 'green', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/whitemage.jpg', },
+        { jobName: "Astrologian", role: "healer", sub_role: "regenerative", color: 'green', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/astrologian.jpg', },
+        { jobName: "Sage", role: "healer", sub_role: "protective", color: 'green', picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/sage.jpg', },
     ]
         ;
+    let filteredJobs = jobs;
+
     //View
     function updateView() {
+        document.getElementById('filterbutton').innerHTML = /*html*/ `
+        <button onclick="filterView()" style="height: auto; width: 100px; font-size: large;">Filter</button>
+        `
         randomJob()
-        document.body.style.backgroundColor = jobs[jobNumber].color;
+        document.body.style.backgroundColor = filteredJobs[jobNumber].color;
 
 
         document.getElementById('scree').innerHTML = /*HTML*/ `
-        <h1>${jobs[jobNumber].jobName}</h1>
+        <h1>${filteredJobs[jobNumber].jobName}</h1>
         `
 
-        document.getElementById('imgur').innerHTML = /*HTML*/ `
-        <img src=${jobs[jobNumber].picture}> 
+        document.getElementById('imagur').innerHTML = /*HTML*/ `
+        <img src=${filteredJobs[jobNumber].picture}> 
         <div>
             <button onClick="updateView();" style="height: 250px; width: 250px; font-size: x-large;">Another job</button>
         </div>
         `
 
     }
+
+    function filterView() {
+        document.body.style.backgroundColor = 'beige';
+
+        document.getElementById("filterbutton").innerHTML = /*html*/ `
+        <button onClick="updateView()" style="height: auto; width: 100px; font-size: large;">FInd a job</button>
+        `
+        document.getElementById('scree').innerHTML = /*html*/ `
+        <h2>Filter out (or inn) the jobs you want to choose from<h2>
+            <hr>
+            <button onclick="tankFilter()">Tank</button><br>
+            <button onclick="healerFilter()">Healer</button><br>
+            <button onclick="DPSFilter()">DPS</button>
+            <button onclick="meleeFilter()">Melee</button>
+            <button onclick="rangeFilter()">Range</button>
+            <button onclick="magicFilter()">Magic</button>
+           
+        `
+        document.getElementById('imagur').innerHTML = '';
+    }
     //Controller
 
     function randomJob() {
-        jobNumber = Math.floor(Math.random() * 19) + 1;
+        jobNumber = Math.floor(Math.random() * filteredJobs.length);
+        console.log(jobNumber);
+    }
 
+    function tankFilter() {
+        filteredJobs = []
+        for (let i = 0; i < jobs.length; i++) {
+            if (jobs[i].role == "tank") { filteredJobs.push(jobs[i]) }
+        }
+        console.log(filteredJobs);
+    }
+    function healerFilter() {
+        filteredJobs = []
+        for (let i = 0; i < jobs.length; i++) {
+            if (jobs[i].role == "healer") { filteredJobs.push(jobs[i]) }
+        }
+        console.log(filteredJobs);
+    }
+    function DPSFilter() {
+        filteredJobs = []
+        for (let i = 0; i < jobs.length; i++) {
+            if (jobs[i].role == "DPS") { filteredJobs.push(jobs[i]) }
+        }
+        console.log(filteredJobs);
+    }
+    function rangeFilter() {
+        filteredJobs = []
+        for (let i = 0; i < jobs.length; i++) {
+            if (jobs[i].sub_role == "physicalrange") { filteredJobs.push(jobs[i]) }
+        }
+        console.log(filteredJobs);
+    }
+    function meleeFilter() {
+        filteredJobs = []
+        for (let i = 0; i < jobs.length; i++) {
+            if (jobs[i].sub_role == "melee") { filteredJobs.push(jobs[i]) }
+        }
+        console.log(filteredJobs);
+    }
+    function magicFilter() {
+        filteredJobs = []
+        for (let i = 0; i < jobs.length; i++) {
+            if (jobs[i].sub_role == "magicrange") { filteredJobs.push(jobs[i]) }
+        }
+        console.log(filteredJobs);
     }
 </script>
 
