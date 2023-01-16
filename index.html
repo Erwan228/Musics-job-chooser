@@ -103,58 +103,64 @@
             <button onclick="meleeFilter()">Melee</button>
             <button onclick="rangeFilter()">Range</button>
             <button onclick="magicFilter()">Magic</button>
+            <hr>
+            <button onclick="resetFilter()">Reset filter</button>
            
         `
         document.getElementById('imagur').innerHTML = '';
     }
     //Controller
 
-    function randomJob() {
+    function randomJob() { /*velger et tilfeldig tall for de jobbene som kan velges*/
         jobNumber = Math.floor(Math.random() * filteredJobs.length);
         console.log(jobNumber);
     }
 
-    function tankFilter() {
+    function tankFilter() { /*Gjør sånn at bare tanks kan velges*/
         filteredJobs = []
         for (let i = 0; i < jobs.length; i++) {
             if (jobs[i].role == "tank") { filteredJobs.push(jobs[i]) }
         }
         console.log(filteredJobs);
     }
-    function healerFilter() {
+    function healerFilter() { /*Gjør sånn at bare healers kan velges*/
         filteredJobs = []
         for (let i = 0; i < jobs.length; i++) {
             if (jobs[i].role == "healer") { filteredJobs.push(jobs[i]) }
         }
         console.log(filteredJobs);
     }
-    function DPSFilter() {
+    function DPSFilter() { /*Gjør sånn at bare dps*/
         filteredJobs = []
         for (let i = 0; i < jobs.length; i++) {
             if (jobs[i].role == "DPS") { filteredJobs.push(jobs[i]) }
         }
         console.log(filteredJobs);
     }
-    function rangeFilter() {
+    function rangeFilter() { /*fysisk langdistanse*/
         filteredJobs = []
         for (let i = 0; i < jobs.length; i++) {
             if (jobs[i].sub_role == "physicalrange") { filteredJobs.push(jobs[i]) }
         }
         console.log(filteredJobs);
     }
-    function meleeFilter() {
+    function meleeFilter() { /*nærkamp*/
         filteredJobs = []
         for (let i = 0; i < jobs.length; i++) {
             if (jobs[i].sub_role == "melee") { filteredJobs.push(jobs[i]) }
         }
         console.log(filteredJobs);
     }
-    function magicFilter() {
+    function magicFilter() { /*casting*/
         filteredJobs = []
         for (let i = 0; i < jobs.length; i++) {
             if (jobs[i].sub_role == "magicrange") { filteredJobs.push(jobs[i]) }
         }
         console.log(filteredJobs);
+    }
+
+    function resetFilter() { /*fjerner filtret*/
+        filteredJobs = jobs;
     }
 </script>
 
