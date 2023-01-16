@@ -19,12 +19,18 @@
         .checkboxes {
             display: flex;
         }
+
+        .biggerButton {
+            height: 100px;
+            width: 100px;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 
 <body>
     <div id="filterbutton">
-        <button onclick="filterView()" style="height: auto; width: 100px; font-size: large;">Filter</button>
+        <button onclick="filterView()" style="height: 75px; width: 100px; font-size: large;">Filter</button>
     </div>
     <div id="scree">
         <h1>Choose a random FFXIV job!</h1>
@@ -69,7 +75,7 @@
     //View
     function updateView() {
         document.getElementById('filterbutton').innerHTML = /*html*/ `
-        <button onclick="filterView()" style="height: auto; width: 100px; font-size: large;">Filter</button>
+        <button onclick="filterView()" style="height: 75px; width: 100px; font-size: large;">Filter</button>
         `
         randomJob()
         document.body.style.backgroundColor = filteredJobs[jobNumber].color;
@@ -92,19 +98,19 @@
         document.body.style.backgroundColor = 'beige';
 
         document.getElementById("filterbutton").innerHTML = /*html*/ `
-        <button onClick="updateView()" style="height: auto; width: 100px; font-size: large;">FInd a job</button>
+        <button class="biggerButton" onClick="updateView()" style="height: 75px; width: 100px; font-size: large;">Find a job</button>
         `
         document.getElementById('scree').innerHTML = /*html*/ `
         <h2>Filter out (or inn) the jobs you want to choose from<h2>
             <hr>
-            <button onclick="tankFilter()">Tank</button><br>
-            <button onclick="healerFilter()">Healer</button><br>
-            <button onclick="DPSFilter()">DPS</button>
-            <button onclick="meleeFilter()">Melee</button>
-            <button onclick="rangeFilter()">Range</button>
-            <button onclick="magicFilter()">Magic</button>
+            <button id="tankButton" class="biggerButton" onclick="tankFilter()">Tank</button><br>
+            <button id="healerButton" class="biggerButton" onclick="healerFilter()">Healer</button><br>
+            <button id="DPSButton" class="biggerButton" onclick="DPSFilter()">DPS</button>
+            <button id="DPSButton" class="biggerButton" onclick="meleeFilter()">Melee</button>
+            <button id="DPSButton" class="biggerButton" onclick="rangeFilter()">Range</button>
+            <button id="DPSButton" class="biggerButton" onclick="magicFilter()">Magic</button>
             <hr>
-            <button onclick="resetFilter()">Reset filter</button>
+            <button class="biggerButton" onclick="resetFilter()">Reset filter</button>
            
         `
         document.getElementById('imagur').innerHTML = '';
