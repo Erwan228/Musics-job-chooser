@@ -30,6 +30,21 @@
         button {
             opacity: 70%;
         }
+
+        #tankButton {
+            background-color: blue;
+            font-size: large;
+        }
+
+        #healerButton {
+            background-color: green;
+            font-size: large;
+        }
+
+        #DPSButton {
+            background-color: red;
+            font-size: large;
+        }
     </style>
 </head>
 
@@ -106,7 +121,7 @@
         <button class="biggerButton" onClick="updateView()" style="height: 75px; width: 100px; font-size: large;">Find a job</button>
         `
         document.getElementById('scree').innerHTML = /*html*/ `
-        <h2>Filter out (or inn) the jobs you want to choose from<h2>
+        <h2>Specify which role you want to choose from<h2>
             <hr>
             <button id="tankButton" class="biggerButton" onclick="tankFilter()">Tank</button><br>
             <button id="healerButton" class="biggerButton" onclick="healerFilter()">Healer</button><br>
