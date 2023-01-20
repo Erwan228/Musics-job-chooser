@@ -69,25 +69,25 @@
     //Modell
     let jobNumber;
     let jobs = [
-        { jobName: "Paladin", role: "tank", color: 'blue', checked: true, picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/paladin.jpg', },
-        { jobName: "Gunbreaker", role: "tank", color: 'blue', checked: true, picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/gunbreaker.jpg', },
-        { jobName: "Dark knight", role: "tank", color: 'blue', checked: true, picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/darkknight.jpg', },
-        { jobName: "Warrior", role: "tank", color: 'blue', checked: true, picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/warrior.jpg', },
-        { jobName: "Reaper", role: "DPS", sub_role: "melee", color: 'red', checked: true, picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/reaper.jpg', },
-        { jobName: "Ninja", role: "DPS", sub_role: "melee", color: 'red', checked: true, picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/ninja.png', },
-        { jobName: "Samurai", role: "DPS", sub_role: "melee", color: 'red', checked: true, picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/samurai.png', },
-        { jobName: "Monk", role: "DPS", sub_role: "melee", color: 'red', checked: true, picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/monk.jpg', },
-        { jobName: "Dragoon", role: "DPS", sub_role: "melee", color: 'red', checked: true, picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/dragoon.jpg', },
-        { jobName: "Bard", role: "DPS", sub_role: "physicalrange", color: 'red', checked: true, picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/bard.jpg', },
-        { jobName: "Machinist", role: "DPS", sub_role: "physicalrange", color: 'red', checked: true, picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/machinist.jpg', },
-        { jobName: "Dancer", role: "DPS", sub_role: "physicalrange", color: 'red', checked: true, picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/dancer.jpg', },
-        { jobName: "Red mage", role: "DPS", sub_role: "magicrange", color: 'red', checked: true, picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/redmage.png', },
-        { jobName: "Black mage", role: "DPS", sub_role: "magicrange", color: 'red', checked: true, picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/blackmage.jpg', },
-        { jobName: "Summoner", role: "DPS", sub_role: "magicrange", color: 'red', checked: true, picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/summoner.jpg', },
-        { jobName: "Scholar", role: "healer", sub_role: "protective", color: 'green', checked: true, picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/scholar.jpg', },
-        { jobName: "White mage", role: "healer", sub_role: "regenerative", color: 'green', checked: true, picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/whitemage.jpg', },
-        { jobName: "Astrologian", role: "healer", sub_role: "regenerative", color: 'green', checked: true, picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/astrologian.jpg', },
-        { jobName: "Sage", role: "healer", sub_role: "protective", color: 'green', checked: true, picture: 'https://erwan228.github.io/Musics-job-chooser/heroes/sage.jpg', },
+        { jobName: "Paladin", role: "tank", color: 'blue', checked: true, },
+        { jobName: "Gunbreaker", role: "tank", color: 'blue', checked: true, },
+        { jobName: "Dark knight", role: "tank", color: 'blue', checked: true, },
+        { jobName: "Warrior", role: "tank", color: 'blue', checked: true, },
+        { jobName: "Reaper", role: "DPS", sub_role: "melee", color: 'red', checked: true, },
+        { jobName: "Ninja", role: "DPS", sub_role: "melee", color: 'red', checked: true, },
+        { jobName: "Samurai", role: "DPS", sub_role: "melee", color: 'red', checked: true, },
+        { jobName: "Monk", role: "DPS", sub_role: "melee", color: 'red', checked: true, },
+        { jobName: "Dragoon", role: "DPS", sub_role: "melee", color: 'red', checked: true, },
+        { jobName: "Bard", role: "DPS", sub_role: "physicalrange", color: 'red', checked: true, },
+        { jobName: "Machinist", role: "DPS", sub_role: "physicalrange", color: 'red', checked: true, },
+        { jobName: "Dancer", role: "DPS", sub_role: "physicalrange", color: 'red', checked: true, },
+        { jobName: "Red mage", role: "DPS", sub_role: "magicrange", color: 'red', checked: true, },
+        { jobName: "Black mage", role: "DPS", sub_role: "magicrange", color: 'red', checked: true, },
+        { jobName: "Summoner", role: "DPS", sub_role: "magicrange", color: 'red', checked: true, },
+        { jobName: "Scholar", role: "healer", sub_role: "protective", color: 'green', checked: true, },
+        { jobName: "White mage", role: "healer", sub_role: "regenerative", color: 'green', checked: true, },
+        { jobName: "Astrologian", role: "healer", sub_role: "regenerative", color: 'green', checked: true, },
+        { jobName: "Sage", role: "healer", sub_role: "protective", color: 'green', checked: true, },
     ]
         ;
     let filteredJobs = jobs;
@@ -106,7 +106,6 @@
         `
 
         document.getElementById('imagur').innerHTML = /*HTML*/ `
-        <img src=${filteredJobs[jobNumber].picture}> 
         <div>
             <button onClick="updateView();" style="height: 250px; width: 250px; font-size: x-large;">Another job</button>
         </div>
@@ -159,28 +158,28 @@
         }
         console.log(filteredJobs);
     }
-    function DPSFilter() { /*Gjør sånn at bare dps*/
+    function DPSFilter() { /*Gjør sånn at bare dps kan velges*/
         filteredJobs = []
         for (let i = 0; i < jobs.length; i++) {
             if (jobs[i].role == "DPS") { filteredJobs.push(jobs[i]) }
         }
         console.log(filteredJobs);
     }
-    function rangeFilter() { /*fysisk langdistanse*/
+    function rangeFilter() { /*gjør sånn at bare fysisk langdistanse dps kan velges*/
         filteredJobs = []
         for (let i = 0; i < jobs.length; i++) {
             if (jobs[i].sub_role == "physicalrange") { filteredJobs.push(jobs[i]) }
         }
         console.log(filteredJobs);
     }
-    function meleeFilter() { /*nærkamp*/
+    function meleeFilter() { /*gjør sånn at bare nærkamp dps*/
         filteredJobs = []
         for (let i = 0; i < jobs.length; i++) {
             if (jobs[i].sub_role == "melee") { filteredJobs.push(jobs[i]) }
         }
         console.log(filteredJobs);
     }
-    function magicFilter() { /*casting*/
+    function magicFilter() { /*gjør sånn at bare magisk dps kan velges*/
         filteredJobs = []
         for (let i = 0; i < jobs.length; i++) {
             if (jobs[i].sub_role == "magicrange") { filteredJobs.push(jobs[i]) }
@@ -188,7 +187,7 @@
         console.log(filteredJobs);
     }
 
-    function resetFilter() { /*fjerner filtret*/
+    function resetFilter() { /*fjerner filtret sånn at alle kan velges*/
         filteredJobs = jobs;
     }
 </script>
