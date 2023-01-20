@@ -45,6 +45,12 @@
             background-color: red;
             font-size: large;
         }
+
+        #Checks {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
     </style>
 </head>
 
@@ -60,10 +66,7 @@
         </div>
     </div>
     <div id="imagur"></div>
-    <!-- <details>
-        <summary>Tanks</summary>
-        <li>Paladin <input type="checkbox" value='checked' onchange=""></li>
-    </details> -->
+
 </body>
 <script>
     //Modell
@@ -129,12 +132,24 @@
             <button id="DPSButton" class="biggerButton" onclick="rangeFilter()">Range</button>
             <button id="DPSButton" class="biggerButton" onclick="magicFilter()">Magic</button>
             <hr>
-            <div id="tankChecks">
+            <h2>Check off the jobs individually</h2>
+            <div id="Checks">
                 
                 </div>
+                <hr>
             <button class="biggerButton" onclick="resetFilter()">Reset filter</button>
            
         `
+        for (let i = 0; i < jobs.length; i++) {
+            if (jobs[i].checked === true) {
+                document.getElementById('Checks').innerHTML += /*html*/`
+            <input type='checkbox' id='${jobs[i].jobName}' checked><p style='margin-top: 0px;'> ${jobs[i].jobName} </p>
+                    `}
+            else {
+                document.getElementById('Checks').innerHTML += /*html*/`
+                    <input type = 'checkbox' id = '${jobs[i].jobName}'> <p style='margin-top: 0px;'> ${jobs[i].jobName} </p>
+            `};
+        }
         document.getElementById('imagur').innerHTML = '';
     }
     //Controller
@@ -147,44 +162,103 @@
     function tankFilter() { /*Gjør sånn at bare tanks kan velges*/
         filteredJobs = []
         for (let i = 0; i < jobs.length; i++) {
-            if (jobs[i].role == "tank") { filteredJobs.push(jobs[i]) }
+            if (jobs[i].role == "tank") {
+                filteredJobs.push(jobs[i]);
+                jobs[i].checked = true;
+            }
+            else { jobs[i].checked = false; }
         }
+
         console.log(filteredJobs);
+        filterView()
     }
     function healerFilter() { /*Gjør sånn at bare healers kan velges*/
         filteredJobs = []
         for (let i = 0; i < jobs.length; i++) {
-            if (jobs[i].role == "healer") { filteredJobs.push(jobs[i]) }
+            if (jobs[i].role == "healer") {
+                filteredJobs.push(jobs[i]);
+                jobs[i].checked = true;
+            }
+            else { jobs[i].checked = false; }
         }
+
         console.log(filteredJobs);
+        filterView()
     }
+
     function DPSFilter() { /*Gjør sånn at bare dps kan velges*/
         filteredJobs = []
         for (let i = 0; i < jobs.length; i++) {
-            if (jobs[i].role == "DPS") { filteredJobs.push(jobs[i]) }
+            if (jobs[i].role == "DPS") {
+                filteredJobs.push(jobs[i]);
+                jobs[i].checked = true;
+            }
+            else { jobs[i].checked = false; }
         }
+
         console.log(filteredJobs);
+        filterView()
     }
+
     function rangeFilter() { /*gjør sånn at bare fysisk langdistanse dps kan velges*/
         filteredJobs = []
         for (let i = 0; i < jobs.length; i++) {
-            if (jobs[i].sub_role == "physicalrange") { filteredJobs.push(jobs[i]) }
+            if (jobs[i].sub_role == "physicalrange") {
+                filteredJobs.push(jobs[i]);
+                jobs[i].checked = true;
+            }
+            else { jobs[i].checked = false; }
         }
+
         console.log(filteredJobs);
+        filterView()
     }
-    function meleeFilter() { /*gjør sånn at bare nærkamp dps*/
+
+    function meleeFilter() { /*gjør sånn at bare nærkamp dps kan velges*/
         filteredJobs = []
         for (let i = 0; i < jobs.length; i++) {
-            if (jobs[i].sub_role == "melee") { filteredJobs.push(jobs[i]) }
+            if (jobs[i].sub_role == "melee") {
+                filteredJobs.push(jobs[i]);
+                jobs[i].checked = true;
+            }
+            else { jobs[i].checked = false; }
         }
+
         console.log(filteredJobs);
+        filterView()
     }
+
     function magicFilter() { /*gjør sånn at bare magisk dps kan velges*/
         filteredJobs = []
         for (let i = 0; i < jobs.length; i++) {
-            if (jobs[i].sub_role == "magicrange") { filteredJobs.push(jobs[i]) }
+            if (jobs[i].sub_role == "magicrange") {
+                filteredJobs.push(jobs[i]);
+                jobs[i].checked = true;
+            }
+            else { jobs[i].checked = false; }
         }
+
         console.log(filteredJobs);
+        filterView()
+    }
+
+    function filterOn(i) { /*Filterfunksjon for enkel checkbox, som setter jobben inn i valget*/
+        jobs[i].checked = true;
+        filteredJobs = [];
+        for (let i = 0; i < jobs.length; i++) {
+            if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
+        }
+        console.log(filteredJobs)
+        filterView()
+    }
+    function filterOff(i) { /*Filterfunksjon for enkel checkbox, som setter jobben ut i valget*/
+        jobs[i].checked = false;
+        filteredJobs = [];
+        for (let i = 0; i < jobs.length; i++) {
+            if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
+        }
+        console.log(filteredJobs)
+        filterView()
     }
 
     function resetFilter() { /*fjerner filtret sånn at alle kan velges*/
