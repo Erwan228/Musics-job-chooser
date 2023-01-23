@@ -143,11 +143,11 @@
         for (let i = 0; i < jobs.length; i++) {
             if (jobs[i].checked === true) {
                 document.getElementById('Checks').innerHTML += /*html*/`
-            <input type='checkbox' id='${jobs[i].jobName}' checked onchange="filterOff(i)"><p style='margin-top: 0px;'> ${jobs[i].jobName} </p>
+            <input type='checkbox' id='${jobs[i].jobName}' checked onchange="filterOff(${i})"><p style='margin-top: 0px;'> ${jobs[i].jobName} </p>
                     `}
             else {
                 document.getElementById('Checks').innerHTML += /*html*/`
-                    <input type = 'checkbox' id = '${jobs[i].jobName}' onchange='filterOn(i)'> <p style='margin-top: 0px;'> ${jobs[i].jobName} </p>
+                    <input type = 'checkbox' id = '${jobs[i].jobName}' onchange='filterOn(${i})'> <p style='margin-top: 0px;'> ${jobs[i].jobName} </p>
             `};
         }
         document.getElementById('imagur').innerHTML = '';
@@ -251,8 +251,8 @@
         console.log(filteredJobs)
         filterView()
     }
-    function filterOff(i) { /*Filterfunksjon for enkel checkbox, som setter jobben ut i valget*/
-        jobs[i].checked = false;
+    function filterOff(index) { /*Filterfunksjon for enkel checkbox, som setter jobben ut i valget*/
+        jobs[index].checked = false;
         filteredJobs = [];
         for (let i = 0; i < jobs.length; i++) {
             if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
