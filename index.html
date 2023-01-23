@@ -263,6 +263,10 @@
 
     function resetFilter() { /*fjerner filtret sånn at alle kan velges*/
         filteredJobs = jobs;
+        for (let i = 0; i < jobs.length; i++) {
+            jobs[i].checked = true
+        }
+        filterView();
     }
 </script>
 
