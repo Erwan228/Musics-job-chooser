@@ -143,11 +143,11 @@
         for (let i = 0; i < jobs.length; i++) {
             if (jobs[i].checked === true) {
                 document.getElementById('Checks').innerHTML += /*html*/`
-            <input type='checkbox' id='${jobs[i].jobName}' checked><p style='margin-top: 0px;'> ${jobs[i].jobName} </p>
+            <input type='checkbox' id='${jobs[i].jobName}' checked onchange="filterOff(i)"><p style='margin-top: 0px;'> ${jobs[i].jobName} </p>
                     `}
             else {
                 document.getElementById('Checks').innerHTML += /*html*/`
-                    <input type = 'checkbox' id = '${jobs[i].jobName}'> <p style='margin-top: 0px;'> ${jobs[i].jobName} </p>
+                    <input type = 'checkbox' id = '${jobs[i].jobName}' onchange='filterOn(i)'> <p style='margin-top: 0px;'> ${jobs[i].jobName} </p>
             `};
         }
         document.getElementById('imagur').innerHTML = '';
