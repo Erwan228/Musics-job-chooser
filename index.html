@@ -127,6 +127,8 @@
             <hr>
             <button id="tankButton" class="biggerButton" onclick="tankFilter()">Tank</button><br>
             <button id="healerButton" class="biggerButton" onclick="healerFilter()">Healer</button><br>
+            <button id="healerButton" class="biggerButton" onclick="regenFilter()">Regen</button><br>
+            <button id="healerButton" class="biggerButton" onclick="barrierFilter()">Barrier</button><br>
             <button id="DPSButton" class="biggerButton" onclick="DPSFilter()">DPS</button><br>
             <button id="DPSButton" class="biggerButton" onclick="meleeFilter()">Melee</button>
             <button id="DPSButton" class="biggerButton" onclick="rangeFilter()">Range</button>
@@ -160,26 +162,138 @@
     }
 
     function tankFilter() { /*Gjør sånn at bare tanks kan velges*/
-        filteredJobs = []
-        for (let i = 0; i < jobs.length; i++) {
-            if (jobs[i].role == "tank") {
-                filteredJobs.push(jobs[i]);
-                jobs[i].checked = true;
+        // filteredJobs = []
+        // for (let i = 0; i < jobs.length; i++) {
+        //     if (jobs[i].role == "tank") {
+        //         filteredJobs.push(jobs[i]);
+        //         jobs[i].checked = true;
+        //     }
+        //     else { jobs[i].checked = false; }
+        // }
+        if (jobs[0].checked && jobs[1].checked && jobs[2].checked && jobs[3].checked) {
+            for (let i = 0; i < jobs.length; i++) {
+                if (jobs[i].role == 'tank') {
+                    jobs[i].checked = false;
+                }
+                filteredJobs = [];
+                for (let i = 0; i < jobs.length; i++) {
+                    if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
+                }
             }
-            else { jobs[i].checked = false; }
+        }
+        else {
+            for (let i = 0; i < jobs.length; i++) {
+                if (jobs[i].role == 'tank') {
+                    jobs[i].checked = true;
+                }
+                filteredJobs = [];
+                for (let i = 0; i < jobs.length; i++) {
+                    if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
+                }
+            }
+        }
+        console.log(filteredJobs);
+        filterView()
+    }
+    function healerFilter() { /*Gjør sånn at bare healers kan velges*/
+        // filteredJobs = []
+        // for (let i = 0; i < jobs.length; i++) {
+        //     if (jobs[i].role == "healer") {
+        //         filteredJobs.push(jobs[i]);
+        //         jobs[i].checked = true;
+        //     }
+        //     else { jobs[i].checked = false; }
+        // }
+        if (jobs[15].checked && jobs[16].checked && jobs[17].checked && jobs[18].checked) {
+            for (let i = 0; i < jobs.length; i++) {
+                if (jobs[i].role == 'healer') {
+                    jobs[i].checked = false;
+                }
+                filteredJobs = [];
+                for (let i = 0; i < jobs.length; i++) {
+                    if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
+                }
+            }
+        }
+        else {
+            for (let i = 0; i < jobs.length; i++) {
+                if (jobs[i].role == 'healer') {
+                    jobs[i].checked = true;
+                }
+                filteredJobs = [];
+                for (let i = 0; i < jobs.length; i++) {
+                    if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
+                }
+            }
         }
 
         console.log(filteredJobs);
         filterView()
     }
-    function healerFilter() { /*Gjør sånn at bare healers kan velges*/
-        filteredJobs = []
-        for (let i = 0; i < jobs.length; i++) {
-            if (jobs[i].role == "healer") {
-                filteredJobs.push(jobs[i]);
-                jobs[i].checked = true;
+    function regenFilter() { /*Gjør sånn at bare regen healers kan velges*/
+        // filteredJobs = []
+        // for (let i = 0; i < jobs.length; i++) {
+        //     if (jobs[i].sub_role == "regenerative") {
+        //         filteredJobs.push(jobs[i]);
+        //         jobs[i].checked = true;
+        //     }
+        //     else { jobs[i].checked = false; }
+        // }
+        if (jobs[16].checked && jobs[17].checked) {
+            for (let i = 0; i < jobs.length; i++) {
+                if (jobs[i].sub_role == 'regenerative') {
+                    jobs[i].checked = false;
+                }
+                filteredJobs = [];
+                for (let i = 0; i < jobs.length; i++) {
+                    if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
+                }
             }
-            else { jobs[i].checked = false; }
+        }
+        else {
+            for (let i = 0; i < jobs.length; i++) {
+                if (jobs[i].sub_role == 'regenerative') {
+                    jobs[i].checked = true;
+                }
+                filteredJobs = [];
+                for (let i = 0; i < jobs.length; i++) {
+                    if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
+                }
+            }
+        }
+        console.log(filteredJobs);
+        filterView()
+    }
+    function barrierFilter() { /*Gjør sånn at bare barrier healers kan velges*/
+        // filteredJobs = []
+        // for (let i = 0; i < jobs.length; i++) {
+        //     if (jobs[i].sub_role == "protective") {
+        //         filteredJobs.push(jobs[i]);
+        //         jobs[i].checked = true;
+        //     }
+        //     else { jobs[i].checked = false; }
+        // }
+        if (jobs[15].checked && jobs[18].checked) {
+            for (let i = 0; i < jobs.length; i++) {
+                if (jobs[i].sub_role == 'protective') {
+                    jobs[i].checked = false;
+                }
+                filteredJobs = [];
+                for (let i = 0; i < jobs.length; i++) {
+                    if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
+                }
+            }
+        }
+        else {
+            for (let i = 0; i < jobs.length; i++) {
+                if (jobs[i].sub_role == 'protective') {
+                    jobs[i].checked = true;
+                }
+                filteredJobs = [];
+                for (let i = 0; i < jobs.length; i++) {
+                    if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
+                }
+            }
         }
 
         console.log(filteredJobs);
@@ -187,13 +301,35 @@
     }
 
     function DPSFilter() { /*Gjør sånn at bare dps kan velges*/
-        filteredJobs = []
-        for (let i = 0; i < jobs.length; i++) {
-            if (jobs[i].role == "DPS") {
-                filteredJobs.push(jobs[i]);
-                jobs[i].checked = true;
+        // filteredJobs = []
+        // for (let i = 0; i < jobs.length; i++) {
+        //     if (jobs[i].role == "DPS") {
+        //         filteredJobs.push(jobs[i]);
+        //         jobs[i].checked = true;
+        //     }
+        //     else { jobs[i].checked = false; }
+        // }
+        if (jobs[4].checked && jobs[5].checked && jobs[6].checked && jobs[7].checked && jobs[8].checked && jobs[9].checked && jobs[10].checked && jobs[11].checked && jobs[12].checked && jobs[13].checked && jobs[14].checked) {
+            for (let i = 0; i < jobs.length; i++) {
+                if (jobs[i].role == 'DPS') {
+                    jobs[i].checked = false;
+                }
+                filteredJobs = [];
+                for (let i = 0; i < jobs.length; i++) {
+                    if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
+                }
             }
-            else { jobs[i].checked = false; }
+        }
+        else {
+            for (let i = 0; i < jobs.length; i++) {
+                if (jobs[i].role == 'DPS') {
+                    jobs[i].checked = true;
+                }
+                filteredJobs = [];
+                for (let i = 0; i < jobs.length; i++) {
+                    if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
+                }
+            }
         }
 
         console.log(filteredJobs);
@@ -201,27 +337,72 @@
     }
 
     function rangeFilter() { /*gjør sånn at bare fysisk langdistanse dps kan velges*/
-        filteredJobs = []
-        for (let i = 0; i < jobs.length; i++) {
-            if (jobs[i].sub_role == "physicalrange") {
-                filteredJobs.push(jobs[i]);
-                jobs[i].checked = true;
+        // filteredJobs = []
+        // for (let i = 0; i < jobs.length; i++) {
+        //     if (jobs[i].sub_role == "physicalrange") {
+        //         filteredJobs.push(jobs[i]);
+        //         jobs[i].checked = true;
+        //     }
+        //     else { jobs[i].checked = false; }
+        // }
+        if (jobs[9].checked && jobs[10].checked && jobs[11].checked) {
+            for (let i = 0; i < jobs.length; i++) {
+                if (jobs[i].sub_role == 'physicalrange') {
+                    jobs[i].checked = false;
+                }
+                filteredJobs = [];
+                for (let i = 0; i < jobs.length; i++) {
+                    if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
+                }
             }
-            else { jobs[i].checked = false; }
         }
+        else {
+            for (let i = 0; i < jobs.length; i++) {
+                if (jobs[i].sub_role == 'physicalrange') {
+                    jobs[i].checked = true;
+                }
+                filteredJobs = [];
+                for (let i = 0; i < jobs.length; i++) {
+                    if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
+                }
+            }
+        }
+
 
         console.log(filteredJobs);
         filterView()
     }
 
     function meleeFilter() { /*gjør sånn at bare nærkamp dps kan velges*/
-        filteredJobs = []
-        for (let i = 0; i < jobs.length; i++) {
-            if (jobs[i].sub_role == "melee") {
-                filteredJobs.push(jobs[i]);
-                jobs[i].checked = true;
+        // filteredJobs = []
+        // for (let i = 0; i < jobs.length; i++) {
+        //     if (jobs[i].sub_role == "melee") {
+        //         filteredJobs.push(jobs[i]);
+        //         jobs[i].checked = true;
+        //     }
+        //     else { jobs[i].checked = false; }
+        // }
+        if (jobs[4].checked && jobs[5].checked && jobs[6].checked && jobs[7].checked && jobs[8].checked) {
+            for (let i = 0; i < jobs.length; i++) {
+                if (jobs[i].sub_role == 'melee') {
+                    jobs[i].checked = false;
+                }
+                filteredJobs = [];
+                for (let i = 0; i < jobs.length; i++) {
+                    if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
+                }
             }
-            else { jobs[i].checked = false; }
+        }
+        else {
+            for (let i = 0; i < jobs.length; i++) {
+                if (jobs[i].sub_role == 'melee') {
+                    jobs[i].checked = true;
+                }
+                filteredJobs = [];
+                for (let i = 0; i < jobs.length; i++) {
+                    if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
+                }
+            }
         }
 
         console.log(filteredJobs);
@@ -229,13 +410,35 @@
     }
 
     function magicFilter() { /*gjør sånn at bare magisk dps kan velges*/
-        filteredJobs = []
-        for (let i = 0; i < jobs.length; i++) {
-            if (jobs[i].sub_role == "magicrange") {
-                filteredJobs.push(jobs[i]);
-                jobs[i].checked = true;
+        // filteredJobs = []
+        // for (let i = 0; i < jobs.length; i++) {
+        //     if (jobs[i].sub_role == "magicrange") {
+        //         filteredJobs.push(jobs[i]);
+        //         jobs[i].checked = true;
+        //     }
+        //     else { jobs[i].checked = false; }
+        // }
+        if (jobs[12].checked && jobs[13].checked && jobs[14].checked) {
+            for (let i = 0; i < jobs.length; i++) {
+                if (jobs[i].sub_role == 'magicrange') {
+                    jobs[i].checked = false;
+                }
+                filteredJobs = [];
+                for (let i = 0; i < jobs.length; i++) {
+                    if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
+                }
             }
-            else { jobs[i].checked = false; }
+        }
+        else {
+            for (let i = 0; i < jobs.length; i++) {
+                if (jobs[i].sub_role == 'magicrange') {
+                    jobs[i].checked = true;
+                }
+                filteredJobs = [];
+                for (let i = 0; i < jobs.length; i++) {
+                    if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
+                }
+            }
         }
 
         console.log(filteredJobs);
