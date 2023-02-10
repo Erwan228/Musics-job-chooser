@@ -134,12 +134,14 @@
             <button id="DPSButton" class="biggerButton" onclick="rangeFilter()">Range</button>
             <button id="DPSButton" class="biggerButton" onclick="magicFilter()">Magic</button>
             <hr>
+            <button class="biggerButton" onclick="toggleFilter()">Toggle all</button>
+            <hr>
             <h2>Check off the jobs individually</h2>
             <div id="Checks">
                 
                 </div>
                 <hr>
-            <button class="biggerButton" onclick="resetFilter()">Reset filter</button>
+            
            
         `
         for (let i = 0; i < jobs.length; i++) {
@@ -464,10 +466,25 @@
         filterView()
     }
 
-    function resetFilter() { /*fjerner filtret sånn at alle kan velges*/
-        filteredJobs = jobs;
+    function toggleFilter() { /*fjerner filtret sånn at alle kan velges*/
+        // filteredJobs = jobs;
+        // for (let i = 0; i < jobs.length; i++) {
+        //     jobs[i].checked = true
+        // }
+        // filterView();
+        if (filteredJobs.length == 19) {
+            for (let i = 0; i < jobs.length; i++) {
+                jobs[i].checked = false
+            }
+        }
+        else {
+            for (let i = 0; i < jobs.length; i++) {
+                jobs[i].checked = true;
+            }
+        }
+        filteredJobs = [];
         for (let i = 0; i < jobs.length; i++) {
-            jobs[i].checked = true
+            if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
         }
         filterView();
     }
