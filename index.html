@@ -472,7 +472,7 @@
         //     jobs[i].checked = true
         // }
         // filterView();
-        if (filteredJobs.length == 19) {
+        if (filteredJobs.length > 0) { //vil prioritere å gjøre alle false enn true
             for (let i = 0; i < jobs.length; i++) {
                 jobs[i].checked = false
             }
