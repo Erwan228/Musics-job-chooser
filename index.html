@@ -72,10 +72,10 @@
     //Modell
     let jobNumber;
     let jobs = [
-        { jobName: "Paladin", role: "tank", color: 'blue', checked: true, },
-        { jobName: "Gunbreaker", role: "tank", color: 'blue', checked: true, },
-        { jobName: "Dark knight", role: "tank", color: 'blue', checked: true, },
-        { jobName: "Warrior", role: "tank", color: 'blue', checked: true, },
+        { jobName: "Paladin", role: "tank", color: 'blue', checked: true, info: "Paladin is a defensive job, that can protect allies as well as itself. Although it uses sword and shield,it also possesses both offensive magic and healing magic, in form of light magic." },
+        { jobName: "Gunbreaker", role: "tank", color: 'blue', checked: true, info: "Gunbreaker is a destructive job, who uses a gunblade, a blade that can set of explosions with its strikes. In higher levels, you can use certain weapon skills in double time which makes it an intense job." },
+        { jobName: "Dark knight", role: "tank", color: 'blue', checked: true, info: "Dark knight uses a two-handed great sword and dark magic to inflict damage on their enemies and defend themselves and their allies." },
+        { jobName: "Warrior", role: "tank", color: 'blue', checked: true, info: "Warrior is beast incarnate. All warriors have an inner beast who is just waiting to let loose with devastating attacks, delivered by a big heavy axe." },
         { jobName: "Reaper", role: "DPS", sub_role: "melee", color: 'red', checked: true, },
         { jobName: "Ninja", role: "DPS", sub_role: "melee", color: 'red', checked: true, },
         { jobName: "Samurai", role: "DPS", sub_role: "melee", color: 'red', checked: true, },
@@ -106,6 +106,7 @@
 
         document.getElementById('scree').innerHTML = /*HTML*/ `
         <h1>${filteredJobs[jobNumber].jobName}</h1>
+        <br><p>${filteredJobs[jobNumber].info}</p>
         `
 
         document.getElementById('imagur').innerHTML = /*HTML*/ `
