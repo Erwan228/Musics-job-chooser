@@ -100,6 +100,7 @@
     ]
         ;
     let filteredJobs = jobs;
+    let ofon;
 
     //View
     function updateView() {
@@ -191,6 +192,7 @@
                     if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
                 }
             }
+            ofon = 'off';
         }
         else {
             for (let i = 0; i < jobs.length; i++) {
@@ -202,9 +204,10 @@
                     if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
                 }
             }
+            ofon = 'on';
         }
         console.log(filteredJobs);
-        filterView('Tank');
+        filterView('Tank', ofon);
 
     }
     function healerFilter() { /*Gjør sånn at bare healers kan velges*/
@@ -226,6 +229,7 @@
                     if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
                 }
             }
+            ofon = 'off';
         }
         else {
             for (let i = 0; i < jobs.length; i++) {
@@ -237,6 +241,7 @@
                     if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
                 }
             }
+            ofon = 'on';
         }
 
         console.log(filteredJobs);
@@ -260,7 +265,7 @@
                 for (let i = 0; i < jobs.length; i++) {
                     if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
                 }
-            }
+            } ofon = 'off';
         }
         else {
             for (let i = 0; i < jobs.length; i++) {
@@ -272,6 +277,7 @@
                     if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
                 }
             }
+            ofon = 'on';
         }
         console.log(filteredJobs);
         filterView('Regen');
@@ -295,6 +301,7 @@
                     if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
                 }
             }
+            ofon = 'off';
         }
         else {
             for (let i = 0; i < jobs.length; i++) {
@@ -306,6 +313,7 @@
                     if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
                 }
             }
+            ofon = 'on';
         }
 
         console.log(filteredJobs);
@@ -331,6 +339,7 @@
                     if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
                 }
             }
+            ofon = 'off';
         }
         else {
             for (let i = 0; i < jobs.length; i++) {
@@ -342,10 +351,11 @@
                     if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
                 }
             }
+            ofon = 'on';
         }
 
         console.log(filteredJobs);
-        filterView('DPS');
+        filterView('DPS', ofon);
     }
 
     function rangeFilter() { /*gjør sånn at bare fysisk langdistanse dps kan velges*/
@@ -367,6 +377,7 @@
                     if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
                 }
             }
+            ofon = 'off';
         }
         else {
             for (let i = 0; i < jobs.length; i++) {
@@ -378,6 +389,7 @@
                     if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
                 }
             }
+            ofon = 'on';
         }
 
 
@@ -404,6 +416,7 @@
                     if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
                 }
             }
+
         }
         else {
             for (let i = 0; i < jobs.length; i++) {
@@ -486,23 +499,25 @@
             for (let i = 0; i < jobs.length; i++) {
                 jobs[i].checked = false
             }
+            ofon = 'off';
         }
         else {
             for (let i = 0; i < jobs.length; i++) {
                 jobs[i].checked = true;
             }
+            ofon = 'on';
         }
         filteredJobs = [];
         for (let i = 0; i < jobs.length; i++) {
             if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
         }
-        filterView();
+        filterView('All', ofon);
     }
 
     function alertOfFilter(filter) {
         if (filter) {
             document.getElementById('filterAlert').innerHTML = /*html*/ `
-            ${filter} is filtered!
+            ${filter} is filtered ${ofon}!
             `
         }
 
