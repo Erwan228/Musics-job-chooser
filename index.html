@@ -124,7 +124,7 @@
 
     }
 
-    function filterView(filter) {
+    function filterView(filter, ofon) {
         document.body.style.backgroundColor = 'beige';
 
         document.getElementById("filterbutton").innerHTML = /*html*/ `
@@ -182,15 +182,21 @@
         //     }
         //     else { jobs[i].checked = false; }
         // }
-        if (jobs[0].checked && jobs[1].checked && jobs[2].checked && jobs[3].checked) {
+        if (filteredJobs.length == 19) {
+            for (let i = 0; i < jobs.length; i++) {
+                if (jobs[i].role != 'tank') {
+                    jobs[i].checked = false;
+                }
+                filteredByJobs();
+            }
+            ofon = 'on';
+        }
+        else if (jobs[0].checked && jobs[1].checked && jobs[2].checked && jobs[3].checked) {
             for (let i = 0; i < jobs.length; i++) {
                 if (jobs[i].role == 'tank') {
                     jobs[i].checked = false;
                 }
-                filteredJobs = [];
-                for (let i = 0; i < jobs.length; i++) {
-                    if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
-                }
+                filteredByJobs();
             }
             ofon = 'off';
         }
@@ -199,10 +205,7 @@
                 if (jobs[i].role == 'tank') {
                     jobs[i].checked = true;
                 }
-                filteredJobs = [];
-                for (let i = 0; i < jobs.length; i++) {
-                    if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
-                }
+                filteredByJobs();
             }
             ofon = 'on';
         }
@@ -219,15 +222,21 @@
         //     }
         //     else { jobs[i].checked = false; }
         // }
-        if (jobs[15].checked && jobs[16].checked && jobs[17].checked && jobs[18].checked) {
+        if (filteredJobs.length == 19) {
+            for (let i = 0; i < jobs.length; i++) {
+                if (jobs[i].role != 'healer') {
+                    jobs[i].checked = false;
+                }
+                filteredByJobs();
+            }
+            ofon = 'on';
+        }
+        else if (jobs[15].checked && jobs[16].checked && jobs[17].checked && jobs[18].checked) {
             for (let i = 0; i < jobs.length; i++) {
                 if (jobs[i].role == 'healer') {
                     jobs[i].checked = false;
                 }
-                filteredJobs = [];
-                for (let i = 0; i < jobs.length; i++) {
-                    if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
-                }
+                filteredByJobs();
             }
             ofon = 'off';
         }
@@ -236,16 +245,13 @@
                 if (jobs[i].role == 'healer') {
                     jobs[i].checked = true;
                 }
-                filteredJobs = [];
-                for (let i = 0; i < jobs.length; i++) {
-                    if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
-                }
+                filteredByJobs();
             }
             ofon = 'on';
         }
 
         console.log(filteredJobs);
-        filterView('Healer');
+        filterView('Healer', ofon);
     }
     function regenFilter() { /*Gjør sånn at bare regen healers kan velges*/
         // filteredJobs = []
@@ -256,15 +262,21 @@
         //     }
         //     else { jobs[i].checked = false; }
         // }
-        if (jobs[16].checked && jobs[17].checked) {
+        if (filteredJobs.length == 19) {
+            for (let i = 0; i < jobs.length; i++) {
+                if (jobs[i].sub_role != 'regenerative') {
+                    jobs[i].checked = false;
+                }
+                filteredByJobs();
+            }
+            ofon = 'on';
+        }
+        else if (jobs[16].checked && jobs[17].checked) {
             for (let i = 0; i < jobs.length; i++) {
                 if (jobs[i].sub_role == 'regenerative') {
                     jobs[i].checked = false;
                 }
-                filteredJobs = [];
-                for (let i = 0; i < jobs.length; i++) {
-                    if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
-                }
+                filteredByJobs();
             } ofon = 'off';
         }
         else {
@@ -272,15 +284,12 @@
                 if (jobs[i].sub_role == 'regenerative') {
                     jobs[i].checked = true;
                 }
-                filteredJobs = [];
-                for (let i = 0; i < jobs.length; i++) {
-                    if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
-                }
+                filteredByJobs();
             }
             ofon = 'on';
         }
         console.log(filteredJobs);
-        filterView('Regen');
+        filterView('Regen', ofon);
     }
     function barrierFilter() { /*Gjør sånn at bare barrier healers kan velges*/
         // filteredJobs = []
@@ -291,15 +300,21 @@
         //     }
         //     else { jobs[i].checked = false; }
         // }
-        if (jobs[15].checked && jobs[18].checked) {
+        if (filteredJobs.length == 19) {
+            for (let i = 0; i < jobs.length; i++) {
+                if (jobs[i].sub_role != 'protective') {
+                    jobs[i].checked = false;
+                }
+                filteredByJobs();
+            }
+            ofon = 'on';
+        }
+        else if (jobs[15].checked && jobs[18].checked) {
             for (let i = 0; i < jobs.length; i++) {
                 if (jobs[i].sub_role == 'protective') {
                     jobs[i].checked = false;
                 }
-                filteredJobs = [];
-                for (let i = 0; i < jobs.length; i++) {
-                    if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
-                }
+                filteredByJobs();
             }
             ofon = 'off';
         }
@@ -308,16 +323,13 @@
                 if (jobs[i].sub_role == 'protective') {
                     jobs[i].checked = true;
                 }
-                filteredJobs = [];
-                for (let i = 0; i < jobs.length; i++) {
-                    if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
-                }
+                filteredByJobs();
             }
             ofon = 'on';
         }
 
         console.log(filteredJobs);
-        filterView('Barrier');
+        filterView('Barrier', ofon);
     }
 
     function DPSFilter() { /*Gjør sånn at bare dps kan velges*/
@@ -329,15 +341,21 @@
         //     }
         //     else { jobs[i].checked = false; }
         // }
-        if (jobs[4].checked && jobs[5].checked && jobs[6].checked && jobs[7].checked && jobs[8].checked && jobs[9].checked && jobs[10].checked && jobs[11].checked && jobs[12].checked && jobs[13].checked && jobs[14].checked) {
+        if (filteredJobs.length == 19) {
+            for (let i = 0; i < jobs.length; i++) {
+                if (jobs[i].role != 'DPS') {
+                    jobs[i].checked = false;
+                }
+                filteredByJobs();
+            }
+            ofon = 'on';
+        }
+        else if (jobs[4].checked && jobs[5].checked && jobs[6].checked && jobs[7].checked && jobs[8].checked && jobs[9].checked && jobs[10].checked && jobs[11].checked && jobs[12].checked && jobs[13].checked && jobs[14].checked) {
             for (let i = 0; i < jobs.length; i++) {
                 if (jobs[i].role == 'DPS') {
                     jobs[i].checked = false;
                 }
-                filteredJobs = [];
-                for (let i = 0; i < jobs.length; i++) {
-                    if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
-                }
+                filteredByJobs();
             }
             ofon = 'off';
         }
@@ -346,10 +364,7 @@
                 if (jobs[i].role == 'DPS') {
                     jobs[i].checked = true;
                 }
-                filteredJobs = [];
-                for (let i = 0; i < jobs.length; i++) {
-                    if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
-                }
+                filteredByJobs();
             }
             ofon = 'on';
         }
@@ -367,15 +382,21 @@
         //     }
         //     else { jobs[i].checked = false; }
         // }
-        if (jobs[9].checked && jobs[10].checked && jobs[11].checked) {
+        if (filteredJobs.length == 19) {
+            for (let i = 0; i < jobs.length; i++) {
+                if (jobs[i].sub_role != 'physicalrange') {
+                    jobs[i].checked = false;
+                }
+                filteredByJobs();
+            }
+            ofon = 'on';
+        }
+        else if (jobs[9].checked && jobs[10].checked && jobs[11].checked) {
             for (let i = 0; i < jobs.length; i++) {
                 if (jobs[i].sub_role == 'physicalrange') {
                     jobs[i].checked = false;
                 }
-                filteredJobs = [];
-                for (let i = 0; i < jobs.length; i++) {
-                    if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
-                }
+                filteredByJobs();
             }
             ofon = 'off';
         }
@@ -384,17 +405,14 @@
                 if (jobs[i].sub_role == 'physicalrange') {
                     jobs[i].checked = true;
                 }
-                filteredJobs = [];
-                for (let i = 0; i < jobs.length; i++) {
-                    if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
-                }
+                filteredByJobs();
             }
             ofon = 'on';
         }
 
 
         console.log(filteredJobs);
-        filterView('Range');
+        filterView('Range', ofon);
     }
 
     function meleeFilter() { /*gjør sånn at bare nærkamp dps kan velges*/
@@ -406,32 +424,35 @@
         //     }
         //     else { jobs[i].checked = false; }
         // }
-        if (jobs[4].checked && jobs[5].checked && jobs[6].checked && jobs[7].checked && jobs[8].checked) {
+        if (filteredJobs.length == 19) {
+            for (let i = 0; i < jobs.length; i++) {
+                if (jobs[i].sub_role != 'melee') {
+                    jobs[i].checked = false;
+                }
+                filteredByJobs();
+            }
+            ofon = 'on';
+        }
+        else if (jobs[4].checked && jobs[5].checked && jobs[6].checked && jobs[7].checked && jobs[8].checked) {
             for (let i = 0; i < jobs.length; i++) {
                 if (jobs[i].sub_role == 'melee') {
                     jobs[i].checked = false;
                 }
-                filteredJobs = [];
-                for (let i = 0; i < jobs.length; i++) {
-                    if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
-                }
+                filteredByJobs();
             }
-
+            ofon = 'off';
         }
         else {
             for (let i = 0; i < jobs.length; i++) {
                 if (jobs[i].sub_role == 'melee') {
                     jobs[i].checked = true;
                 }
-                filteredJobs = [];
-                for (let i = 0; i < jobs.length; i++) {
-                    if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
-                }
+                filteredByJobs();
             }
+            ofon = 'on';
         }
-
         console.log(filteredJobs);
-        filterView('Melee');
+        filterView('Melee', ofon);
     }
 
     function magicFilter() { /*gjør sånn at bare magisk dps kan velges*/
@@ -443,31 +464,35 @@
         //     }
         //     else { jobs[i].checked = false; }
         // }
-        if (jobs[12].checked && jobs[13].checked && jobs[14].checked) {
+        if (filteredJobs.length == 19) {
+            for (let i = 0; i < jobs.length; i++) {
+                if (jobs[i].sub_role != 'magicrange') {
+                    jobs[i].checked = false;
+                }
+                filteredByJobs();
+            }
+            ofon = 'on';
+        }
+        else if (jobs[12].checked && jobs[13].checked && jobs[14].checked) {
             for (let i = 0; i < jobs.length; i++) {
                 if (jobs[i].sub_role == 'magicrange') {
                     jobs[i].checked = false;
                 }
-                filteredJobs = [];
-                for (let i = 0; i < jobs.length; i++) {
-                    if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
-                }
+                filteredByJobs();
             }
+            ofon = 'off';
         }
         else {
             for (let i = 0; i < jobs.length; i++) {
                 if (jobs[i].sub_role == 'magicrange') {
                     jobs[i].checked = true;
                 }
-                filteredJobs = [];
-                for (let i = 0; i < jobs.length; i++) {
-                    if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
-                }
+                filteredByJobs();
             }
+            ofon = 'on';
         }
-
         console.log(filteredJobs);
-        filterView('Magic');
+        filterView('Magic', ofon);
     }
 
     function filterOn(i) { /*Filterfunksjon for enkel checkbox, som setter jobben inn i valget*/
@@ -479,8 +504,8 @@
         console.log(filteredJobs)
         filterView()
     }
-    function filterOff(index) { /*Filterfunksjon for enkel checkbox, som setter jobben ut i valget*/
-        jobs[index].checked = false;
+    function filterOff(i) { /*Filterfunksjon for enkel checkbox, som setter jobben ut i valget*/
+        jobs[i].checked = false;
         filteredJobs = [];
         for (let i = 0; i < jobs.length; i++) {
             if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
@@ -522,6 +547,13 @@
         }
 
         else return;
+    }
+
+    function filteredByJobs() {
+        filteredJobs = [];
+        for (let i = 0; i < jobs.length; i++) {
+            if (jobs[i].checked === true) { filteredJobs.push(jobs[i]) }
+        }
     }
 </script>
 
