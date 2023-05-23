@@ -51,6 +51,11 @@
             flex-direction: column;
             align-items: flex-start;
         }
+
+        .jobButton {
+            position: absolute;
+            top: 400px;
+        }
     </style>
 </head>
 
@@ -61,7 +66,8 @@
     <div id="scree">
         <h1>Choose a random FFXIV job!</h1>
         <div>
-            <button onClick="updateView();" style="height: 250px; width: 250px; font-size: x-large;">Find a
+            <button class="jobButton" onClick="updateView()"
+                style="height: 250px; width: 250px; font-size: x-large; ">Find a
                 job</button>
         </div>
     </div>
@@ -111,7 +117,7 @@
 
         document.getElementById('imagur').innerHTML = /*HTML*/ `
         <div>
-            <button onClick="updateView();" style="height: 250px; width: 250px; font-size: x-large; position: absolute; top: 400px;">Another job</button>
+            <button class="jobButton" onClick="updateView();" style="height: 250px; width: 250px; font-size: x-large;">Another job</button>
         </div>
         `
 
