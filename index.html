@@ -97,12 +97,12 @@
         { jobName: "Red mage", role: "DPS", sub_role: "magicrange", color: 'red', checked: true, info: "Wield both offensive and healing magic with ease. Build up your reservoires of red magic by alternating between which spells you use, and unleash it with your rapier. Red mages are very versatile." },
         { jobName: "Black mage", role: "DPS", sub_role: "magicrange", color: 'red', checked: true, info: "Using the void as a source for their powers, the black mage delivers devastating attacks with fire, and replenish their mana with ice spells. The black mage is not very mobile, but hits HARD." },
         { jobName: "Summoner", role: "DPS", sub_role: "magicrange", color: 'red', checked: true, info: "Channeling the essence of Ifrit, Garuda and Titan, the summoner can command the primals' powers to fight their enemies. To play summoner does not require much input and is easy job to play." },
-        { jobName: "Scholar", role: "healer", sub_role: "protective", color: 'green', checked: true, info: "Using arcanima the scholars both heal and shield their allies. The scholar can also summon a fairy to help them with healing." },
         { jobName: "White mage", role: "healer", sub_role: "regenerative", color: 'green', checked: true, info: "The white mage is the most potent healer, using a cane and the elements of the forest. White mages have the ability to use regenerative healing." },
         { jobName: "Astrologian", role: "healer", sub_role: "regenerative", color: 'green', checked: true, info: "By reading the stars and using their powers, astrologians can heal their allies with regenerative effects. They also have a deck of tarot cards which they can use to buff other allies with." },
+        { jobName: "Scholar", role: "healer", sub_role: "protective", color: 'green', checked: true, info: "Using arcanima the scholars both heal and shield their allies. The scholar can also summon a fairy to help them with healing." },
         { jobName: "Sage", role: "healer", sub_role: "protective", color: 'green', checked: true, info: "Masters of knowledge, the sage heals, protects and attacks with great effiency. The sage can cast barriers on their allies, and launch a stronger attack when that barrier breaks." },
-    ]
-        ;
+    ];
+    let checkContent = [];
     let filteredJobs = jobs;
     let ofon;
 
@@ -157,20 +157,62 @@
             
            
         `
-        for (let i = 0; i < jobs.length; i++) {
+        //  for (let i = 0; i < jobs.length; i++) {
+        //      if (jobs[i].checked === true) {
+        //          document.getElementById('Checks').innerHTML += /*html*/`
+        //      <input type='checkbox' id='${jobs[i].jobName}' checked onchange="filterOff(${i})"><p style='margin-top: 0px;'> ${jobs[i].jobName} </p>
+        //              `}
+        //      else {
+        //          document.getElementById('Checks').innerHTML += /*html*/`
+        //              <input type = 'checkbox' id = '${jobs[i].jobName}' onchange='filterOn(${i})'> <p style='margin-top: 0px;'> ${jobs[i].jobName} </p>
+        //      `};
+        for (let i = 0; i < jobs.length; i++) { //laget for å sette inn sjekkbokser med innhold basert på om de er sjekka eller ikke
             if (jobs[i].checked === true) {
-                document.getElementById('Checks').innerHTML += /*html*/`
-            <input type='checkbox' id='${jobs[i].jobName}' checked onchange="filterOff(${i})"><p style='margin-top: 0px;'> ${jobs[i].jobName} </p>
-                    `}
+                checkContent[i] = `<input type='checkbox' id='${jobs[i].jobName}' checked onchange="filterOff(${i})"><p style='margin-top: 0px;'> ${jobs[i].jobName} </p>`
+            }
             else {
-                document.getElementById('Checks').innerHTML += /*html*/`
-                    <input type = 'checkbox' id = '${jobs[i].jobName}' onchange='filterOn(${i})'> <p style='margin-top: 0px;'> ${jobs[i].jobName} </p>
-            `};
+                checkContent[i] = `<input type = 'checkbox' id = '${jobs[i].jobName}' onchange='filterOn(${i})'> <p style='margin-top: 0px;'> ${jobs[i].jobName} </p>`
+            }
         }
+        document.getElementById('Checks').innerHTML = /*html*/ `
+        <div id="tanks"><hr>
+        ${checkContent[0]}
+        ${checkContent[1]}
+        ${checkContent[2]}
+        ${checkContent[3]}
+        </div>
+        <div id="DPS"><hr>
+            <div id="melee"><hr>
+        ${checkContent[4]}
+        ${checkContent[5]}
+        ${checkContent[6]}
+        ${checkContent[7]}
+        ${checkContent[8]}
+            </div>
+            <div id="range"><hr>
+        ${checkContent[9]}
+        ${checkContent[10]}
+        ${checkContent[11]}
+        </div>
+        <div id="magic"><hr>
+        ${checkContent[12]}
+        ${checkContent[13]}
+        ${checkContent[14]}
+        </div></div>
+        <div id="healer"><div id="regen"><hr><hr>
+        ${checkContent[15]}
+        ${checkContent[16]}
+        </div><div id="barrier"><hr>
+        ${checkContent[17]}
+        ${checkContent[18]}
+        </div></div>
+        `
+
         markCategories();
         document.getElementById('imagur').innerHTML = '';
         alertOfFilter(filter);
     }
+
     //Controller
 
     function randomJob() { /*velger et tilfeldig tall for de jobbene som kan velges*/
@@ -276,7 +318,7 @@
             }
             ofon = 'on';
         }
-        else if (jobs[16].checked && jobs[17].checked) {
+        else if (jobs[15].checked && jobs[16].checked) {
             for (let i = 0; i < jobs.length; i++) {
                 if (jobs[i].sub_role == 'regenerative') {
                     jobs[i].checked = false;
@@ -314,7 +356,7 @@
             }
             ofon = 'on';
         }
-        else if (jobs[15].checked && jobs[18].checked) {
+        else if (jobs[17].checked && jobs[18].checked) {
             for (let i = 0; i < jobs.length; i++) {
                 if (jobs[i].sub_role == 'protective') {
                     jobs[i].checked = false;
@@ -568,10 +610,10 @@
         if (jobs[15].checked && jobs[16].checked && jobs[17].checked && jobs[18].checked) {
             document.getElementById('healerButton').classList.add('chosenCategory');
         }
-        if (jobs[16].checked && jobs[17].checked) {
+        if (jobs[16].checked && jobs[15].checked) {
             document.getElementById('regenButton').classList.add('chosenCategory');
         }
-        if (jobs[15].checked && jobs[18].checked) {
+        if (jobs[17].checked && jobs[18].checked) {
             document.getElementById('barrierButton').classList.add('chosenCategory');
         }
         if (jobs[4].checked && jobs[5].checked && jobs[6].checked && jobs[7].checked && jobs[8].checked && jobs[9].checked && jobs[10].checked && jobs[11].checked && jobs[12].checked && jobs[13].checked && jobs[14].checked) {
