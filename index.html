@@ -60,6 +60,35 @@
         .chosenCategory {
             border: 5px solid black;
         }
+
+        #tanks {
+            display: flex;
+        }
+
+        #melee {
+            display: flex;
+        }
+
+        #range {
+            display: flex;
+        }
+
+        #magic {
+            display: flex;
+        }
+
+        #regen {
+            display: flex;
+        }
+
+        #barrier {
+            display: flex;
+        }
+
+        input[type="checkbox" i] {
+            margin-left: 20px;
+            margin-top: -15px;
+        }
     </style>
 </head>
 
@@ -175,34 +204,34 @@
             }
         }
         document.getElementById('Checks').innerHTML = /*html*/ `
-        <div id="tanks"><hr>
+        <div id="tanks">
         ${checkContent[0]}
         ${checkContent[1]}
         ${checkContent[2]}
         ${checkContent[3]}
-        </div>
-        <div id="DPS"><hr>
-            <div id="melee"><hr>
+        </div><br><br>
+        <div id="DPS">
+            <div id="melee">
         ${checkContent[4]}
         ${checkContent[5]}
         ${checkContent[6]}
         ${checkContent[7]}
         ${checkContent[8]}
-            </div>
-            <div id="range"><hr>
+            </div><br>
+            <div id="range">
         ${checkContent[9]}
         ${checkContent[10]}
         ${checkContent[11]}
-        </div>
-        <div id="magic"><hr>
+        </div><br>
+        <div id="magic">
         ${checkContent[12]}
         ${checkContent[13]}
         ${checkContent[14]}
-        </div></div>
-        <div id="healer"><div id="regen"><hr><hr>
+        </div></div><br><br>
+        <div id="healer"><div id="regen">
         ${checkContent[15]}
         ${checkContent[16]}
-        </div><div id="barrier"><hr>
+        </div><div id="barrier"><br>
         ${checkContent[17]}
         ${checkContent[18]}
         </div></div>
