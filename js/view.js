@@ -46,7 +46,7 @@ function filterView(filter, ofon) {
         <button id="rangeButton" class="DPSButton biggerButton" onclick="rangeFilter()">Range</button>
         <button id="magicButton" class="DPSButton biggerButton" onclick="magicFilter()">Magic</button>
         <hr>
-        <button class="biggerButton" onclick="toggleFilter()">Toggle all</button>
+        <button class="biggerButton" onclick="toggleFilter()">Toggle all on/off</button>
         <hr>
         <h2>Check off the jobs individually</h2>
         <div id="Checks">
