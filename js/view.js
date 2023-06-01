@@ -31,7 +31,6 @@ function updateView() {
 
 function filterView(filter, ofon) {
     document.body.style.backgroundColor = 'beige';
-    checkTheFilters();
     document.getElementById('scree').innerHTML = /*html*/ `
     <button class="biggerButton" onClick="updateView()" style="height: 75px; width: 100px; font-size: large;">Find a job</button>
     <h2>Specify which role you want to choose from<h2>
