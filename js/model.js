@@ -24,3 +24,4 @@ let jobs = [
 let checkContent = [];
 let filteredJobs = jobs;
 let ofon;
+let toggleonof;

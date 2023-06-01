@@ -31,7 +31,7 @@ function updateView() {
 
 function filterView(filter, ofon) {
     document.body.style.backgroundColor = 'beige';
-
+    checkTheFilters();
     document.getElementById('scree').innerHTML = /*html*/ `
     <button class="biggerButton" onClick="updateView()" style="height: 75px; width: 100px; font-size: large;">Find a job</button>
     <h2>Specify which role you want to choose from<h2>
@@ -46,7 +46,7 @@ function filterView(filter, ofon) {
         <button id="rangeButton" class="DPSButton biggerButton" onclick="rangeFilter()">Range</button>
         <button id="magicButton" class="DPSButton biggerButton" onclick="magicFilter()">Magic</button>
         <hr>
-        <button class="biggerButton" onclick="toggleFilter()">Toggle all</button>
+        <button class="biggerButton" onclick="toggleFilter()">Toggle all ${toggleonof()}</button>
         <hr>
         <h2>Check off the jobs individually</h2>
         <div id="Checks">

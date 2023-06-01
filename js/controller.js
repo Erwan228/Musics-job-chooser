@@ -414,3 +414,8 @@ function markCategories() {
         document.getElementById('magicButton').classList.add('chosenCategory');
     }
 }
+
+function toggleonof() {
+    if (filteredJobs.length > 0) return "off";
+    else return "on"
+}
