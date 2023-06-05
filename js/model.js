@@ -2,7 +2,7 @@
 let jobNumber;
 let jobs = [
     { jobName: "Paladin", role: "tank", color: 'blue', checked: true, info: "Paladin is a defensive job, that can protect its allies. Together with its sword and shield,it also possesses both offensive and healing magic." },
-    { jobName: "Gunbreaker", role: "tank", color: 'blue', checked: true, info: "Gunbreaker is a destructive job, who uses a gunblade, a blade that can set of explosions with its strikes. In higher levels, you can use certain weapon skills in double time which makes it an intense job." },
+    { jobName: "Gunbreaker", role: "tank", color: 'blue', checked: true, info: "With its gunblade, the gunbreaker can unleash powerfull explosive attacks and combos by collecting cartridges from its standard combo" },
     { jobName: "Dark knight", role: "tank", color: 'blue', checked: true, info: "Dark knight uses a two-handed great sword and dark magic to inflict damage on their enemies and defend themselves and their allies." },
     { jobName: "Warrior", role: "tank", color: 'blue', checked: true, info: "Warrior is beast incarnate. All warriors have an inner beast who is just waiting to let loose with devastating attacks, delivered by a big heavy axe." },
     { jobName: "Reaper", role: "DPS", sub_role: "melee", color: 'red', checked: true, info: "Reaps their enemies' soul with their scythe, and to bring forth their avatar from the void to bring high intensity attacks." },
