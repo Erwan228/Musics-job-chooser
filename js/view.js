@@ -30,7 +30,7 @@ function updateView() {
 }
 
 function filterView(filter, ofon) {
-    document.body.style.backgroundColor = '#313131';
+    document.body.style.backgroundColor = '#13131';
 
     document.getElementById('scree').innerHTML = /*html*/ `
     <button class="biggerButton" onClick="updateView()" style="height: 75px; width: 100px; font-size: large;">Find a job</button>
