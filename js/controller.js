@@ -419,3 +419,8 @@ function toggleonof() {
     if (filteredJobs.length > 0) return "off";
     else return "on"
 }
+
+function randomMsg() {
+    let rng = Math.floor(Math.random() * msg.length);
+    return msg[rng]
+}

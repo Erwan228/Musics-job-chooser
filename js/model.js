@@ -24,3 +24,16 @@ let jobs = [
 let checkContent = [];
 let filteredJobs = jobs;
 let ofon;
+let msg = [
+    'Go for',
+    'Try out',
+    'You should play as',
+    'Time to go as',
+    'Ready',
+    'Duty commence',
+    'Shine as a',
+    "Let's go",
+    'Your job is',
+    'You are a',
+    'Save us',
+]
