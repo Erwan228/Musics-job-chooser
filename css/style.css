@@ -84,3 +84,7 @@ input[type="checkbox" i] {
     margin-left: 20px;
     margin-top: -15px;
 }
+
+#rndMsgP {
+    font-size: 12px;
+}
