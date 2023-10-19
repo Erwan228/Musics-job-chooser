@@ -47,6 +47,9 @@ button {
     position: absolute;
     top: 400px;
 }
+.jobButton :active{
+    background-color: black;
+}
 
 .chosenCategory {
     border: 5px solid black;
