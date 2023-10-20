@@ -14,11 +14,12 @@ function view() {
 
 function updateView() {
     randomJob()
+    randomMsg()
     document.body.style.backgroundColor = filteredJobs[jobNumber].color;
 
 
     document.getElementById('scree').innerHTML = /*HTML*/ `
-    <button onclick="filterView()" style="height: 75px; width: 100px; font-size: large;">Filter</button> <p id="rndMsgP">${randomMsg()}</p>
+    <button onclick="filterView()" style="height: 75px; width: 100px; font-size: large;">Filter</button> <p id="rndMsgP">${displayMsg}</p>
     <h1>${filteredJobs[jobNumber].jobName}</h1>
     <br><p style="font-weight: bold;">${filteredJobs[jobNumber].info}</p>
     <div>

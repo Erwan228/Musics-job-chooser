@@ -36,4 +36,6 @@ let msg = [
     'Your job is',
     'You are a',
     'Save us',
-]
+];
+let previousMsg = null;
+let displayMsg;
