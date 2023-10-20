@@ -421,12 +421,12 @@ function toggleonof() {
 }
 
 function randomMsg() {
+    previousMsg = displayMsg;
     if (!previousMsg) {
         let rng = Math.floor(Math.random() * msg.length);
         displayMsg = msg[rng]
     }
     else {
-        previousMsg = displayMsg;
         let newMsg = msg.filter(x => x !== previousMsg)
         let rng = Math.floor(Math.random() * newMsg.length)
         displayMsg = newMsg[rng];
