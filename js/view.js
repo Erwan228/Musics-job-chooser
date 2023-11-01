@@ -1,40 +1,40 @@
 //View
-view();
-function view() {
-    document.getElementById('scree').innerHTML = /*html*/ `
+initialView();
+function initialView() {
+    document.getElementById('void').innerHTML = /*html*/ `
     <button onclick="filterView()" style="height: 75px; width: 100px; font-size: large;">Filter</button>
     <h1>Choose a random FFXIV job!</h1>
         <div>
-            <button class="jobButton" onClick="updateView()"
+            <button class="jobButton" onClick="resultView()"
                 style="height: 250px; width: 250px; font-size: x-large; ">Find a
                 job</button>
         </div>
     `
 }
 
-function updateView() {
+function resultView() {
     randomJob()
     randomMsg()
     document.body.style.backgroundColor = filteredJobs[jobNumber].color;
 
 
-    document.getElementById('scree').innerHTML = /*HTML*/ `
+    document.getElementById('void').innerHTML = /*HTML*/ `
     <button onclick="filterView()" style="height: 75px; width: 100px; font-size: large;">Filter</button> <p id="rndMsgP">${displayMsg}</p>
     <h1>${filteredJobs[jobNumber].jobName}</h1>
     <br><p style="font-weight: bold;">${filteredJobs[jobNumber].info}</p>
     <div>
-        <button class="jobButton" onClick="updateView();" style="height: 250px; width: 250px; font-size: x-large;">Another job</button>
+        <button class="jobButton" onClick="resultView();" style="height: 250px; width: 250px; font-size: x-large;">Another job</button>
     </div>
     `
 
 
 }
 
-function filterView(filter, ofon) {
+function filterView(filter) {
     document.body.style.backgroundColor = '#313131';
 
-    document.getElementById('scree').innerHTML = /*html*/ `
-    <button class="biggerButton" onClick="updateView()" style="height: 75px; width: 100px; font-size: large;">Find a job</button>
+    document.getElementById('void').innerHTML = /*html*/ `
+    <button class="biggerButton" onClick="resultView()" style="height: 75px; width: 100px; font-size: large;">Find a job</button>
     <h2>Specify which role you want to choose from<h2>
         <div id="filterAlert"><br></div> <!--Brukes for å displaye hvilket filter er trykket på-->
         <hr>
