@@ -4,11 +4,9 @@ function initialView() {
     document.getElementById('void').innerHTML = /*html*/ `
     <button onclick="filterView()" style="height: 75px; width: 100px; font-size: large;">Filter</button>
     <h1>Choose a random FFXIV job!</h1>
-        <div>
-            <button class="jobButton" onClick="resultView()"
+        <button class="jobButton" onClick="resultView()"
                 style="height: 250px; width: 250px; font-size: x-large; ">Find a
                 job</button>
-        </div>
     `
 }
 
