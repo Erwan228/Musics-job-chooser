@@ -44,7 +44,7 @@ button {
 }
 
 .jobButton {
-    
+
     margin-top: 400px;
 }
 
@@ -92,4 +92,5 @@ input[type="checkbox" i] {
 
 #startButtons {
     display: flex;
+    justify-content: space-between;
 }
