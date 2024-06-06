@@ -89,3 +89,7 @@ input[type="checkbox" i] {
     font-size: 20px;
     font-weight: bold;
 }
+
+#startButtons {
+    display: flex;
+}
