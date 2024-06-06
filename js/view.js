@@ -6,7 +6,7 @@ function initialView() {
     <h1>Choose a random FFXIV job!</h1>
     <div id="startButtons">    
     <button class="jobButton" onClick="resultView()" style="height: 250px; width: 250px; font-size: x-large; ">Find a job</button>
-    <button style="height: 250px; width: 250px; font-size: x-large;" class="jobButton" onClick="roleView()">Find a role</button>
+    <button style="height: 250px; width: 250px; font-size: x-large;" class="jobButton" onClick="roleView()">(WIP)Find a role</button>
     </div>
     `
 }
