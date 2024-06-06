@@ -44,8 +44,7 @@ button {
 }
 
 .jobButton {
-    position: absolute;
-    top: 400px;
+    margin-top: 400px;
 }
 
 .chosenCategory {
