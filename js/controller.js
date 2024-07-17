@@ -438,7 +438,6 @@ function newRole() {
 }
 
 function srNewJob(role) {
-    let sameRoleJobs = [];
     for (let i = 0; i < jobs.length; i++) {
         if (jobs[i].role == role || jobs[i].sub_role == role) {
             sameRoleJobs.push(jobs[i]);
