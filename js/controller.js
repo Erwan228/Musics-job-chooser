@@ -438,10 +438,12 @@ function newRole() {
 }
 
 function srNewJob(role) {
+    sameRoleJobs = [];
     for (let i = 0; i < jobs.length; i++) {
         if (jobs[i].role == role || jobs[i].sub_role == role) {
             sameRoleJobs.push(jobs[i]);
         }
     }
     console.log(sameRoleJobs);
+    sameRoleJobsNumber = Math.floor(Math.random() * sameRoleJobs.length);
 }

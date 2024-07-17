@@ -28,6 +28,7 @@ let jobs = [
   /*20*/  { jobName: "Sage", role: "Healer", sub_role: "protective", color: 'green', checked: true, info: "Masters of knowledge, the sage heals, protects and attacks with great effiency. The sage can cast barriers on their allies, and launch a stronger attack when that barrier breaks." },
 ];
 let sameRoleJobs = [];
+let sameRoleJobsNumber = null;
 let roleNumber;
 let roles = [
   { name: 'Tank', color: 'blue' },
