@@ -11,6 +11,22 @@ function initialView() {
     `
 }
 
+function roleView() {
+    document.getElementById('void').innerHTML = /*html*/ `
+    <h1>Role</h1>
+    <div>
+        <button>New role</button>
+    </div>
+    <br>
+    <h2>Job</h2>
+    <div>
+        <button>New job</button>
+    </div>
+
+    
+    `
+}
+
 function resultView() {
     randomJob()
     randomMsg()
