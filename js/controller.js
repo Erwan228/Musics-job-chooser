@@ -434,7 +434,7 @@ function randomMsg() {
 
 /*role chooser*/
 function newRole() {
-    let roleNumber = Math.floor(Math.random() * 5);
+    roleNumber = Math.floor(Math.random() * 5);
 }
 
 function srNewJob(role) {
