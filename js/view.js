@@ -12,15 +12,20 @@ function initialView() {
 }
 
 function roleView() {
+    newRole();
+    document.body.style.backgroundColor = roles[roleNumber].color;
+
+    srNewJob();
+
     document.getElementById('void').innerHTML = /*html*/ `
-    <h1>Role</h1>
+    <h1>${roles[roleNumber].name}</h1>
     <div>
-        <button class="roleViewButtons">New role</button>
+        <button class="roleViewButtons" onClick="roleView">New role</button>
     </div>
     <br>
     <h2>Job</h2>
     <div>
-        <button class="roleViewButtons">New job</button>
+        <button class="roleViewButtons" onClick="srNewJob(roles[roleNumber].name)">New job</button>
     </div>
 
     

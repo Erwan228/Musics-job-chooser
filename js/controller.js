@@ -431,3 +431,18 @@ function randomMsg() {
         displayMsg = newMsg[rng];
     }
 }
+
+/*role chooser*/
+function newRole() {
+    let roleNumber = Math.floor(Math.random() * 5);
+}
+
+function srNewJob(role) {
+    let sameRoleJobs = [];
+    for (let i = 0; i < jobs.length; i++) {
+        if (jobs[i].role == role || jobs[i].sub_role == role) {
+            sameRoleJobs.push(jobs[i]);
+        }
+    }
+    console.log(srNewJob);
+}
