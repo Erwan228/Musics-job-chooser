@@ -20,7 +20,7 @@ function roleView() {
     document.getElementById('void').innerHTML = /*html*/ `
     <h1>${roles[roleNumber].name}</h1>
     <div>
-        <button class="roleViewButtons" onClick="roleView">New role</button>
+        <button class="roleViewButtons" onClick="roleView()">New role</button>
     </div>
     <br>
     <h2>Job</h2>
