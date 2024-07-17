@@ -15,12 +15,12 @@ function roleView() {
     document.getElementById('void').innerHTML = /*html*/ `
     <h1>Role</h1>
     <div>
-        <button>New role</button>
+        <button class="roleViewButtons">New role</button>
     </div>
     <br>
     <h2>Job</h2>
     <div>
-        <button>New job</button>
+        <button class="roleViewButtons">New job</button>
     </div>
 
     

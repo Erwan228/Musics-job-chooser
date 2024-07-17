@@ -48,6 +48,10 @@ button {
     margin-top: 300px;
 }
 
+.roleViewButtons {
+    width: 50px;
+}
+
 .chosenCategory {
     border: 5px solid black;
 }
