@@ -444,5 +444,5 @@ function srNewJob(role) {
             sameRoleJobs.push(jobs[i]);
         }
     }
-    console.log(srNewJob);
+    console.log(sameRoleJobs);
 }
