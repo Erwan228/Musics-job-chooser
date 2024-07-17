@@ -27,6 +27,7 @@ let jobs = [
   /*19*/  { jobName: "Scholar", role: "Healer", sub_role: "protective", color: 'green', checked: true, info: "Using arcanima the scholars both heal and shield their allies. The scholar can also summon a fairy to help them with healing." },
   /*20*/  { jobName: "Sage", role: "Healer", sub_role: "protective", color: 'green', checked: true, info: "Masters of knowledge, the sage heals, protects and attacks with great effiency. The sage can cast barriers on their allies, and launch a stronger attack when that barrier breaks." },
 ];
+let sameRoleJobs = [];
 let roleNumber;
 let roles = [
   { name: 'Tank', color: 'blue' },
