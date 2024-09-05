@@ -23,14 +23,23 @@ function roleView() {
         <button class="roleViewButtons" onClick="roleView()">New role</button>
     </div>
     <br>
-    <h2>${sameRoleJobs[sameRoleJobsNumber].jobName}</h2>
-    <div>
-        <button class="roleViewButtons" onClick="srNewJob(roles[roleNumber].name)">New job</button>
-    </div>
+    <div id="srJobsDiv"></div> <!--Div for dynamisk input av ny jobb-->
+    `
 
-    
+    roleJobWrite()
+
+
+}
+
+function roleJobWrite() {
+    document.getElementById('srJobsDiv').innerHTML = /*html*/ `
+        <h2>${sameRoleJobs[sameRoleJobsNumber].jobName}</h2>
+            <div>
+                <button class="roleViewButtons" onClick="srNewJob(roles[roleNumber].name)">New job</button>
+            </div>
     `
 }
+
 
 function resultView() {
     randomJob()

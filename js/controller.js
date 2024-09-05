@@ -446,4 +446,5 @@ function srNewJob(role) {
     }
     console.log(sameRoleJobs);
     sameRoleJobsNumber = Math.floor(Math.random() * sameRoleJobs.length);
+    roleJobWrite()
 }
