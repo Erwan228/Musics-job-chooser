@@ -15,7 +15,7 @@ function roleView() {
     newRole();
     document.body.style.backgroundColor = roles[roleNumber].color;
 
-    srNewJob();
+    srNewJob(roles[roleNumber].name);
 
     document.getElementById('void').innerHTML = /*html*/ `
     <h1>${roles[roleNumber].name}</h1>
