@@ -26,7 +26,8 @@ function roleView() {
     <div id="srJobsDiv"></div> 
     `;
 
-    roleJobWrite()
+    setTimeout(roleJobWrite, 10)
+    // roleJobWrite()
 
 
 }
