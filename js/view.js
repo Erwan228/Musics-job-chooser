@@ -23,7 +23,7 @@ function roleView() {
         <button class="roleViewButtons" onClick="roleView()">New role</button>
     </div>
     <br>
-    <div id="srJobsDiv"></div> <!--Div for dynamisk input av ny jobb-->
+    <div id="srJobsDiv"></div> 
     `
 
     roleJobWrite()
