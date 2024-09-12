@@ -24,7 +24,7 @@ function roleView() {
     </div>
     <br>
     <div id="srJobsDiv"></div> 
-    `
+    `;
 
     roleJobWrite()
 
