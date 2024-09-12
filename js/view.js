@@ -117,23 +117,25 @@ function filterView(filter) {
     ${checkContent[6]}
     ${checkContent[7]}
     ${checkContent[8]}
+    ${checkContent[9]}
         </div><br>
         <div id="range">
-    ${checkContent[9]}
     ${checkContent[10]}
     ${checkContent[11]}
+    ${checkContent[12]}
     </div><br>
     <div id="magic">
-    ${checkContent[12]}
     ${checkContent[13]}
     ${checkContent[14]}
-    </div></div><br><br>
-    <div id="healer"><div id="regen">
     ${checkContent[15]}
     ${checkContent[16]}
-    </div><div id="barrier"><br>
+    </div></div><br><br>
+    <div id="healer"><div id="regen">
     ${checkContent[17]}
     ${checkContent[18]}
+    </div><div id="barrier"><br>
+    ${checkContent[19]}
+    ${checkContent[20]}
     </div></div>
     `
 
